@@ -8,22 +8,24 @@ import java.io.IOException;
 public class WriterCSV {
 
     // Write to CSV File Method
-    public void writeCSV(String timestamp, String title, String author, String ISBN) {
+    public void writeCSV(String timestamp, String userID, String postcode, String concentration) {
         // Declare Variables
-        String filePath = "";
+        String filePath = ""; // Need to add the file path of the csv file (Alternative - we could have the program create one if one does not exist)
         File fileCheck = new File(filePath);
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true))) {
             if (fileCheck.length() == 0) {
-                writer.write("Timestamp, Title, Author, ISBN");
+                writer.write("Timestamp, userID, postcode, concentration"); // Only variable that exists is Timestamp -
+                                                                                // userID, postcode, concentration collected from user input (Client Side)
                 writer.newLine();
             }
 
-            //Write to CSV File
-            writer.write(timestamp + "," + title + "," + author + "," + ISBN);
+            // Write to CSV File
+            writer.write(timestamp + "," + userID + "," + postcode + "," + concentration);
             writer.newLine();
 
-            System.out.println("Book Submitted Successfully");
+            // Print a message saying Reading was Submitted Successfully
+            System.out.println("Reading Submitted Successfully");
         } catch (IOException e) {
             e.printStackTrace();
         }
