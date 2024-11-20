@@ -2,42 +2,64 @@ package com.example.envlog.model;
 
 // Imports
 import java.util.Scanner;
+import com.example.envlog.util.ValidateUserInfo;
 
 public class RegisterUser {
 
-    public static void registerUser() {
+    private String name;
+    private String username;
+    private String password;
+
+    public boolean registerUser() {
         // Initialise Scanner
         Scanner scn = new Scanner(System.in);
         // Declare Variables
         String input = "Please Enter ";
-        String userCsvFilePath = "src/resources/UserInfo.csv";
 
-        // Prompt User to Register
-        System.out.println("-- Register --");
+        // Initialize ValidateUserInfo class
+        ValidateUserInfo validate = new ValidateUserInfo();
 
-        // Prompt User to Enter Name
-        System.out.println(input + "Name: ");
-        String name = scn.nextLine();
+        // Use a while loop to keep asking for user input if validation fails
+        boolean isValid = false;
+        while (!isValid) {
+            // Prompt User to Register
+            System.out.println("-- Register --");
 
-        // Prompt User to Enter Username
-        System.out.println(input + "Username: ");
-        String username = scn.nextLine();
+            // Prompt User to Enter Name
+            System.out.println(input + "Name: ");
+            this.name = scn.nextLine();
 
-        // Prompt User to Enter Password
-        System.out.println(input + "Password: ");
-        String password = scn.nextLine();
+            // Prompt User to Enter Username
+            System.out.println(input + "Username: ");
+            this.username = scn.nextLine();
 
-        /*
-        // Print Inputted Info
-        System.out.println(name + username + password);
+            // Prompt User to Enter Password
+            System.out.println(input + "Password: ");
+            this.password = scn.nextLine();
 
-         */
+            // Validate Input
+            isValid = validate.validateName(name) && validate.validateUsername(username) && validate.validatePassword(password);
+
+            // If validation fails, print an error and repeat the loop
+            if (!isValid) {
+                System.out.println("Registration failed. Please check your input and try again.");
+            }
+        }
+        // If we exit the loop, the input is valid
+        System.out.println("Registration successful!");
+        return true;
     }
 
-
-
-    public static void main(String[] args) {
-        registerUser();
+    // Getter methods for name, username, and password
+    public String getName() {
+        return name;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
 }

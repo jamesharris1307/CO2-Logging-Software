@@ -1,12 +1,12 @@
 package com.example.envlog;
 
 // Imports
+import com.example.envlog.model.RegisterUser;
+import com.example.envlog.util.UserWriteCSV;
 import com.example.envlog.model.UserInfo;
 
-import java.util.Objects;
 import java.util.Scanner;
 import static com.example.envlog.model.Login.login;
-import static com.example.envlog.model.RegisterUser.registerUser;
 
 
 public class Main {
@@ -35,21 +35,33 @@ public class Main {
         << Connect to Server Here >>
          */
 
-        System.out.println("Login (L)\nRegister (R)");
-        String userInput = scn.nextLine();
-
         while (true) {
+            System.out.println("Login (L)\nRegister (R)");
+            String userInput = scn.nextLine();
+
             if (userInput.equals("L")) {
                 login();
                 break;
             } else if (userInput.equals("R")) {
-                registerUser();
-                break;
-            } else {
-                System.out.println("Invalid Input");
+                RegisterUser registerUser = new RegisterUser();
+                boolean registrationSuccessful = registerUser.registerUser();
+
+                if (registrationSuccessful) {
+                    System.out.println("Registration Successful!");
+
+                    // Get the user info from RegisterUser after successful registration
+                    String name = registerUser.getName();
+                    String username = registerUser.getUsername();
+                    String password = registerUser.getPassword();
+
+                    UserInfo userinfo = new UserInfo(name, username, password);
+                    UserWriteCSV.writeUserInfoCSV(userInfo);
+                    break;
+                } else {
+                    System.out.println("Invalid Input");
+                }
             }
-        }
 
-    } // Public Static Void Main End
-
+        } // Public Static Void Main End
+    }
 } // Public Class Main End

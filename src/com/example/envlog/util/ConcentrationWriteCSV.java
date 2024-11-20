@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class WriterCSV {
+public class ConcentrationWriteCSV {
 
     // Write to CSV File Method
     public void writeCSV(String timestamp, String userID, String postcode, String concentration) {
