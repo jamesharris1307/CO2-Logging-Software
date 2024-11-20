@@ -39,8 +39,4 @@ public class Login {
 
     } // End of Method Login
 
-    public static void main(String[] args) {
-        login();
-    }
-
 } // End of Class Login

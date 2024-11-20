@@ -49,4 +49,17 @@ public class RegisterUser {
         System.out.println("Registration successful!");
         return true;
     }
+
+    // Getter methods to access private fields
+    public String getName() {
+        return name;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
 }
