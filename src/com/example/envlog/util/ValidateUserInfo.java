@@ -13,6 +13,7 @@ public class ValidateUserInfo {
         }
     }
 
+    // Validate userName
     public boolean validateUsername(String username) {
         if (username.length() < 5) {
             System.out.println("Username Less than 5 Characters");
@@ -23,6 +24,7 @@ public class ValidateUserInfo {
         // Check for existing username and if it does exist them return false
     }
 
+    // Validate Password
     public boolean validatePassword(String password) {
         // Check if Input is Empty or Less than 8 Characters
         if (password.length() < 8) {
