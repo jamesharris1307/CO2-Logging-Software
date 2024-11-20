@@ -3,12 +3,11 @@ package com.example.envlog;
 // Imports
 import com.example.envlog.model.UserInfo;
 
+import java.util.Objects;
 import java.util.Scanner;
 import static com.example.envlog.model.Login.login;
-import static com.example.envlog.model.Register.*;
-import static com.example.envlog.util.Validations.nameValidation;
-import static com.example.envlog.util.Validations.usernameValidation;
-import static com.example.envlog.util.Validations.passwordValidation;
+import static com.example.envlog.model.RegisterUser.registerUser;
+
 
 public class Main {
 
@@ -20,12 +19,14 @@ public class Main {
         // Prompt User to Enter Port Number to Connect to Server
         System.out.println("Enter Port Number: ");
         int inputPortNumb = scn.nextInt();
+        scn.nextLine();
 
         while (true) {
             // Check Port Number is Correct
             if (inputPortNumb != portNumber) {
                 System.out.println("Invalid Port Number");
-            }else {
+                scn.nextLine();
+            } else {
                 break;
             }
         }
@@ -34,17 +35,15 @@ public class Main {
         << Connect to Server Here >>
          */
 
-        //
+        System.out.println("Login (L)\nRegister (R)");
+        String userInput = scn.nextLine();
+
         while (true) {
-            System.out.println("Login (L) \n Register (R)");
-            if (scn.next().equals("L")) {
+            if (userInput.equals("L")) {
                 login();
                 break;
-            } else if (scn.next().equals("R")) {
-                nameValidation();
-                usernameValidation();
-                passwordValidation();
-                validateUserInfo();
+            } else if (userInput.equals("R")) {
+                registerUser();
                 break;
             } else {
                 System.out.println("Invalid Input");
