@@ -1,74 +1,76 @@
 package com.example.envlog.util;
 
+// Imports
 import java.util.Scanner;
 
 // Validations Class that contains methods that validates User Info
 public class Validations {
 
-    // Declare Variables
+    // UserInput Variables
+    static String name;
+    static String username;
+    static String password;
+
+    // Validate Input Messages
+    static String input = "Please Enter ";
+    static String error = "Input Error - ";
     static String invalid = "Try Again: ";
 
-    // Validate UserInput (Name)
+    // Initialise Scanner
+    static Scanner scn = new Scanner(System.in);
+
+    // Method to Validate UserInput (Name)
     public static String nameValidation() {
-        // Initialise Scanner
-        Scanner scn = new Scanner(System.in);
-        String valName; // Name Variable
 
         // Loop Until UserInput (Name) is Validated
         while (true) {
             // Ask User for Input
-            System.out.println("Please enter name");
-            valName = scn.nextLine(); // Take Input
+            System.out.println(input + "name: ");
+            name = scn.nextLine(); // Take Input
 
             // Check if Input is Empty
-            if (valName.isEmpty()) {
-                System.out.println("Name Can't Be Empty \n" + invalid);
+            if (name.isEmpty()) {
+                System.out.println(error + "Name Can't Be Empty \n" + invalid);
             } else {
                 break;
             }
         }
         // Return UserInput after Validated
-        return valName;
+        return name;
     }
 
+    // Method to Validate UserInput (Username)
     public static String usernameValidation() {
 
-        Scanner scn = new Scanner(System.in);
-
-        String username;
-
+        // Loop Until UserInput (Username) is Validated
         while (true) {
+            // Ask User for Input
+            System.out.println(input + "Username: ");
+            username = scn.nextLine(); // Take Input
 
-            System.out.println("Please enter Username");
-            username = scn.nextLine();
-
-            if (username.isEmpty() || username.length() < 5) {
-                System.out.println("You cant leave Username empty \n  PLease try again: ");
+            // Check if Input is Empty or Less than 5 Characters
+            if (username.length() < 5) {
+                System.out.println(error + "Username Less than 5 Characters \n" + invalid);
             } else {
                 break;
             }
         }
-
-
         return username;
     }
 
+    // Method to Validate UserInput (Password)
     public static String passwordValidation() {
 
-        Scanner scn = new Scanner(System.in);
-
-        String password;
-
+        // Loop Until UserInput (Password) is Validated
         while (true) {
-            System.out.println("PLease enter Password");
+            System.out.println(input + "Password: ");
             password = scn.nextLine();
 
-            if (password.isEmpty()) {
-                System.out.println("Password is empty or to short min 8char \n Please try again");
-            } else if (password.length() < 8) {
-                System.out.println("Password to short min 8char \n Please try again");
+            // Check if Input is Empty or Less than 8 Characters
+            if (password.length() < 8) {
+                System.out.println(error + "Password too short minimum 8 characters \n"  + invalid);
             } else if (!password.matches(".*\\d.*")) {
-                System.out.println("Password must contain at least one number \n Please try again");
+                System.out.println(error + "Password must contain at least one number (0-9) \n"  + invalid);
             } else
                 break;
         }

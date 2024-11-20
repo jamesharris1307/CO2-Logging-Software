@@ -2,6 +2,7 @@ package com.example.envlog.model;
 
 // Imports
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -17,7 +18,7 @@ public class Register {
         UserInfo userInfo = new UserInfo();
         userInfo.setName(name);
         userInfo.setUsername(Username);
-        userInfo.setPassword(password);
+        userInfo.setPassword(password); // Need to Hash Password For Security Purposes
         return userInfo;
     }
 
@@ -39,36 +40,39 @@ public class Register {
         return createUser(name, username, password);
     }
 
-    public static UserInfo writer1(){
+    public static void writeUserInfoCSV(){
         // Create an Array List
         ArrayList<UserInfo> arr = new ArrayList<>();
-        // Collect User Info
-        UserInfo writerInfo = writer2();
-        // Add UserInfo to ArrayList
-        arr.add(writerInfo);
-        // Path to the CSV File
-        String csv = "src/UserInfo.csv";
+        UserInfo writerInfo = writer2(); // Collect User Info
+        arr.add(writerInfo); // Add UserInfo to ArrayList
 
-        try {
-            // Create Buffered Writer to write User Input to the CSV file
-            BufferedWriter writer = new BufferedWriter(new FileWriter(csv, true)); // Adding 'true' makes the file append not overwrite.
+        // Path to the CSV File
+        String userCsvFilePath = "src/UserInfo.csv";
+        File userInfoCSV = new File(userCsvFilePath); // Check if the File Exists
+
+        // Create Buffered Writer to write User Input to the CSV file
+        try { BufferedWriter writer = new BufferedWriter(new FileWriter(userCsvFilePath, true));
             // Write Header Row to the CSV File
-            writer.write("Name, Username, Password");
-            // User Input gets written on a new line
-            writer.newLine();
+            if (userInfoCSV.length() == 0) {
+                writer.write("Name, Username, Password");
+            }
+
             // Write Data Stored in Array List to the CSV File
+            writer.newLine();
             writer.write(arr.toString());
-            // Close Writer
             writer.close();
+
+            //Success Message
+            System.out.println("Registration Successful");
+
             // Error Handling
         } catch (IOException ioe) {
             System.out.println("Couldn't write to file");
         }
-        return null;
     }
 
     // Calling 'Writer1'
     public static void main(String[] args) {
-        writer1();
+        writeUserInfoCSV();
     }
 }
