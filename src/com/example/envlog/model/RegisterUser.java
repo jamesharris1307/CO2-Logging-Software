@@ -49,17 +49,4 @@ public class RegisterUser {
         System.out.println("Registration successful!");
         return true;
     }
-
-    // Getter methods for name, username, and password
-    public String getName() {
-        return name;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
 }

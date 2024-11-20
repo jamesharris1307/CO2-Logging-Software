@@ -2,11 +2,12 @@ package com.example.envlog;
 
 // Imports
 import com.example.envlog.model.RegisterUser;
-import com.example.envlog.util.UserWriteCSV;
 import com.example.envlog.model.UserInfo;
 
-import java.util.Scanner;
 import static com.example.envlog.model.Login.login;
+import static com.example.envlog.util.UserWriteCSV.writeUserInfoCSV;
+
+import java.util.Scanner;
 
 
 public class Main {
@@ -47,15 +48,9 @@ public class Main {
                 boolean registrationSuccessful = registerUser.registerUser();
 
                 if (registrationSuccessful) {
-                    System.out.println("Registration Successful!");
-
-                    // Get the user info from RegisterUser after successful registration
-                    String name = registerUser.getName();
-                    String username = registerUser.getUsername();
-                    String password = registerUser.getPassword();
-
-                    UserInfo userinfo = new UserInfo(name, username, password);
-                    UserWriteCSV.writeUserInfoCSV(userInfo);
+                    UserInfo userInfo = new UserInfo(registerUser.getName(), registerUser.getUsername(), registerUser.getPassword());
+                    writeUserInfoCSV(userInfo);
+                }
                     break;
                 } else {
                     System.out.println("Invalid Input");
@@ -63,5 +58,4 @@ public class Main {
             }
 
         } // Public Static Void Main End
-    }
 } // Public Class Main End
