@@ -7,7 +7,6 @@ import static com.example.envlog.model.Login.login;
 import static com.example.envlog.util.UserWriteCSV.writeUserInfoCSV;
 import java.util.Scanner;
 
-
 public class Main {
 
     // Initialise Scanner
@@ -62,7 +61,7 @@ public class Main {
             }
         }
 
-        System.out.println("Enter CO2 Concentration Readings Thing");
+        System.out.println("Lol");
 
     } // Public Static Void Main End
 } // Public Class Main End

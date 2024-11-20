@@ -13,29 +13,31 @@ public class Login {
         String input = "Please Enter ";
         String userCsvFilePath = "src/resources/UserInfo.csv";
 
-        // Prompt User to Login
-        System.out.println("-- Login --");
+        while (true) {
+            // Prompt User to Login
+            System.out.println("-- Login --");
 
-        // Prompt User to Enter Username
-        System.out.println(input + "Username: ");
-        String username = scn.nextLine();
+            // Prompt User to Enter Username
+            System.out.println(input + "Username: ");
+            String username = scn.nextLine();
 
-        // Prompt User to Enter Password
-        System.out.println(input + "Password: ");
-        String password = scn.nextLine();
+            // Prompt User to Enter Password
+            System.out.println(input + "Password: ");
+            String password = scn.nextLine();
 
-        // Call Check Username Method
-        boolean usernameExists = ReadCSV.checkUsernameExists(userCsvFilePath, username);
-        // Call Check Password Method
-        boolean passwordExists = ReadCSV.checkPasswordExists(userCsvFilePath, password);
+            // Call Check Username Method
+            boolean usernameExists = ReadCSV.checkUsernameExists(userCsvFilePath, username);
+            // Call Check Password Method
+            boolean passwordExists = ReadCSV.checkPasswordExists(userCsvFilePath, password);
 
-        // Check if Username + Password Exists
-        if (usernameExists && passwordExists) {
-            System.out.println("Login Successful");
-        } else {
-            System.out.println("Login Failed");
+            // Check if Username + Password Exists
+            if (usernameExists && passwordExists) {
+                System.out.println("Login Successful");
+                break;
+            } else {
+                System.out.println("Login Failed");
+            }
         }
-        scn.close();
 
     } // End of Method Login
 
