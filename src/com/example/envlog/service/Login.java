@@ -1,4 +1,4 @@
-package com.example.envlog.model;
+package com.example.envlog.service;
 
 // Imports
 import java.util.Scanner;

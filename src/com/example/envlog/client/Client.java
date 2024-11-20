@@ -1,4 +1,4 @@
-package com.example.envlog.model;
+package com.example.envlog.client;
 import java.io.*;
 import java.net.*;
 import java.util.Scanner;

@@ -1,9 +1,9 @@
 package com.example.envlog;
 
 // Imports
-import com.example.envlog.model.RegisterUser;
+import com.example.envlog.service.RegisterUser;
 import com.example.envlog.model.UserInfo;
-import static com.example.envlog.model.Login.login;
+import static com.example.envlog.service.Login.login;
 import static com.example.envlog.util.UserWriteCSV.writeUserInfoCSV;
 import java.util.Scanner;
 
@@ -62,7 +62,7 @@ public class Main {
         }
 
         // After Successful Login Continue Program
-        System.out.println("Lol");
+        System.out.println("Hello");
 
     } // Public Static Void Main End
 } // Public Class Main End
