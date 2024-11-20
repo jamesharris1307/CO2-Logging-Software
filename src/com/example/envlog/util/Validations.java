@@ -2,28 +2,33 @@ package com.example.envlog.util;
 
 import java.util.Scanner;
 
+// Validations Class that contains methods that validates User Info
 public class Validations {
 
+    // Declare Variables
+    static String invalid = "Try Again: ";
+
+    // Validate UserInput (Name)
     public static String nameValidation() {
-
+        // Initialise Scanner
         Scanner scn = new Scanner(System.in);
+        String valName; // Name Variable
 
-        String name;
-
+        // Loop Until UserInput (Name) is Validated
         while (true) {
-
+            // Ask User for Input
             System.out.println("Please enter name");
-            name = scn.nextLine();
+            valName = scn.nextLine(); // Take Input
 
-            if (name.isEmpty()) {
-                System.out.println("You cant leave Name empty \n  PLease try again: ");
+            // Check if Input is Empty
+            if (valName.isEmpty()) {
+                System.out.println("Name Can't Be Empty \n" + invalid);
             } else {
                 break;
             }
         }
-
-
-        return name;
+        // Return UserInput after Validated
+        return valName;
     }
 
     public static String usernameValidation() {
