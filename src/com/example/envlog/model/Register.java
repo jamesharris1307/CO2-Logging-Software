@@ -52,7 +52,7 @@ public class Register {
         arr.add(writerInfo); // Add UserInfo to ArrayList
 
         // Path to the CSV File
-        String userCsvFilePath = "src/UserInfo.csv";
+        String userCsvFilePath = "src/resources/UserInfo.csv";
         File userInfoCSV = new File(userCsvFilePath); // Check if the File Exists
 
         // Create Buffered Writer to write User Input to the CSV file

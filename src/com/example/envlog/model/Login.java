@@ -1,32 +1,44 @@
 package com.example.envlog.model;
 
-import org.w3c.dom.ls.LSOutput;
-
+// Imports
 import java.util.Scanner;
+import com.example.envlog.util.ReadCSV;
 
 public class Login {
-    Scanner scn = new Scanner(System.in);
-    public void login(){
-        System.out.println("Login");
+    // Method to Login
+    public static void login(){
+        // Initialise Scanner
+        Scanner scn = new Scanner(System.in);
+        // Declare Variables
+        String input = "Please Enter ";
+        String userCsvFilePath = "src/resources/UserInfo.csv";
 
-        System.out.println("Please enter your Username");
+        // Prompt User to Login
+        System.out.println("-- Login --");
 
+        // Prompt User to Enter Username
+        System.out.println(input + "Username: ");
         String username = scn.nextLine();
 
-        System.out.println("Please Enter your name");
+        // Prompt User to Enter Password
+        System.out.println(input + "Password: ");
         String password = scn.nextLine();
 
-//        while(true){
-//            System.out.println();
-//
-//            if(username.equals("admin") && password.equals("password")){
-//
-//                break;
-//            }
-//        }
-//        Not sure about it
+        // Call Check Username Method
+        boolean usernameExists = ReadCSV.checkUsernameExists(userCsvFilePath, username);
+
+        if (usernameExists){
+            System.out.println("Login Successful");
+        } else {
+            System.out.println("Login Failed");
+        }
+
+        scn.close();
+
+    } // End of Method Login
+
+    public static void main(String[] args) {
+        login();
     }
 
-
-
-}
+} // End of Class Login

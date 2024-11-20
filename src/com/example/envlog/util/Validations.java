@@ -8,11 +8,6 @@ import com.example.envlog.util.Tools;
 // Validations Class that contains methods that validates User Info
 public class Validations {
 
-    // UserInput Variables
-    static String name;
-    static String username;
-    static String password;
-
     // Validate Input Messages
     static String input = "Please Enter ";
     static String error = "Input Error - ";
@@ -24,6 +19,8 @@ public class Validations {
     // Method to Validate UserInput (Name)
     public static String nameValidation() {
 
+        // Declare Name Variable
+        String name;
         // Loop Until UserInput (Name) is Validated
         while (true) {
             // Ask User for Input
@@ -44,6 +41,8 @@ public class Validations {
     // Method to Validate UserInput (Username)
     public static String usernameValidation() {
 
+        // Declare Name Variable
+        String username;
         // Loop Until UserInput (Username) is Validated
         while (true) {
             // Ask User for Input
@@ -63,6 +62,8 @@ public class Validations {
     // Method to Validate UserInput (Password)
     public static String passwordValidation() {
 
+        // Declare Name Variable
+        String password;
         // Loop Until UserInput (Password) is Validated
         while (true) {
             System.out.println(input + "Password: ");
