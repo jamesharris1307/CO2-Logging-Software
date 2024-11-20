@@ -5,7 +5,6 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 // Import Validations.java Class
 import com.example.envlog.util.Validations;
 
@@ -14,16 +13,18 @@ public class Register {
 
     // Method that creates a UserInfo object
     public static UserInfo createUser(String name, String Username, String password){
+
         // Create User Info Object
         UserInfo userInfo = new UserInfo();
         userInfo.setName(name);
         userInfo.setUsername(Username);
         userInfo.setPassword(password); // Need to Hash Password For Security Purposes
         return userInfo;
-    }
+
+    } // End createUser Method
 
     // Method that gets User Info validated using the Validations.java Class
-    public static UserInfo writer2(){
+    public static UserInfo validateUserInfo(){
 
         // Create validateUserInfo
         UserInfo validateUserInfo = new UserInfo();
@@ -42,14 +43,11 @@ public class Register {
 
         // Return Validated User Input
         return createUser(name, username, password);
-    }
+
+    } // End validateUserInfo Method
 
     // Method to Write to UserInfo CSV File
-    public static void writeUserInfoCSV(){
-        // Create an Array List
-        ArrayList<UserInfo> arr = new ArrayList<>();
-        UserInfo writerInfo = writer2(); // Collect User Info
-        arr.add(writerInfo); // Add UserInfo to ArrayList
+    public static void writeUserInfoCSV(UserInfo userInfo){
 
         // Path to the CSV File
         String userCsvFilePath = "src/resources/UserInfo.csv";
@@ -57,14 +55,15 @@ public class Register {
 
         // Create Buffered Writer to write User Input to the CSV file
         try { BufferedWriter writer = new BufferedWriter(new FileWriter(userCsvFilePath, true));
+
             // Write Header Row to the CSV File
             if (userInfoCSV.length() == 0) {
                 writer.write("Name, Username, Password");
             }
 
-            // Write Data Stored in Array List to the CSV File
+            // Write Data Row to the CSV File
             writer.newLine();
-            writer.write(arr.toString());
+            writer.write(userInfo.getName() + "," + userInfo.getUsername() + "," + userInfo.getPassword() + ",");
             writer.close();
 
             //Success Message
@@ -74,10 +73,11 @@ public class Register {
         } catch (IOException ioe) {
             System.out.println("Couldn't write to file");
         }
+
+    } // End writeUserInfoCSV Method
+
+    public static void registerUser() {
+        validateUserInfo();
     }
 
-    // Calling 'writeUserInfoCSV'
-    public static void main(String[] args) {
-        writeUserInfoCSV();
-    }
 }

@@ -26,13 +26,15 @@ public class Login {
 
         // Call Check Username Method
         boolean usernameExists = ReadCSV.checkUsernameExists(userCsvFilePath, username);
+        // Call Check Password Method
+        boolean passwordExists = ReadCSV.checkPasswordExists(userCsvFilePath, password);
 
-        if (usernameExists){
+        // Check if Username + Password Exists
+        if (usernameExists && passwordExists) {
             System.out.println("Login Successful");
         } else {
             System.out.println("Login Failed");
         }
-
         scn.close();
 
     } // End of Method Login
