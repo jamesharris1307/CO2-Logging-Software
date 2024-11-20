@@ -2,6 +2,8 @@ package com.example.envlog.util;
 
 // Imports
 import java.util.Scanner;
+// Import Validations.java Class
+import com.example.envlog.util.Tools;
 
 // Validations Class that contains methods that validates User Info
 public class Validations {
@@ -72,8 +74,10 @@ public class Validations {
             } else if (!password.matches(".*\\d.*")) {
                 System.out.println(error + "Password must contain at least one number (0-9) \n"  + invalid);
             } else
+                // I guess we could Hash Password Here
                 break;
         }
         return password;
     }
-}
+
+} // End of Public Class Validations

@@ -22,24 +22,29 @@ public class Register {
         return userInfo;
     }
 
-    // User Info is validated using the Validations.java Class
+    // Method that gets User Info validated using the Validations.java Class
     public static UserInfo writer2(){
 
         // Create validateUserInfo
         UserInfo validateUserInfo = new UserInfo();
+
         // Validate Name
         String name = Validations.nameValidation();
         validateUserInfo.setName(name);
+
         // Validate Username
         String username = Validations.usernameValidation();
         validateUserInfo.setUsername(username);
+
         // Validate Password
         String password = Validations.passwordValidation();
         validateUserInfo.setPassword(password);
+
         // Return Validated User Input
         return createUser(name, username, password);
     }
 
+    // Method to Write to UserInfo CSV File
     public static void writeUserInfoCSV(){
         // Create an Array List
         ArrayList<UserInfo> arr = new ArrayList<>();
@@ -71,7 +76,7 @@ public class Register {
         }
     }
 
-    // Calling 'Writer1'
+    // Calling 'writeUserInfoCSV'
     public static void main(String[] args) {
         writeUserInfoCSV();
     }
