@@ -12,32 +12,38 @@ class ClientHandler implements Runnable {
             client = c;
         }
 
+//      server side method for handling client communication
         public void run () {
-            BufferedReader clientIn = null;
+            BufferedReader Inclient = null;
             PrintWriter outClient = null;
             String input = null;
 
+//          trying to get input from the client and prints to the client anything that sends from the server
             try {
-                clientIn = new BufferedReader (new InputStreamReader(client.getInputStream ()));
+                Inclient = new BufferedReader (new InputStreamReader(client.getInputStream ()));
                 outClient = new PrintWriter (client.getOutputStream (), true);
             }
             catch (Exception e) {
                 e.printStackTrace ();
             }
+//           Welcome message from server
             outClient.println("Welcome to the server !");
+
+//          continuously reading clients input
             do {
                 try {
-                    input = clientIn.readLine ();
+                    input = Inclient.readLine ();
                     outClient.println (input);
                 }
                 catch (Exception e) {
                     e.printStackTrace ();
                 }
             }
+//          loop until input is equals to close then program should close connections
             while (!input.equals ("Close"));
 
             try {
-                clientIn.close ();
+                Inclient.close ();
                 outClient.close ();
                 client.close ();
             }
