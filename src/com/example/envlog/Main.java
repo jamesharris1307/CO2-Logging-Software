@@ -30,9 +30,9 @@ public class Main {
             }
         }
 
-        /*
-        << Connect to Server Here >>
-         */
+        // << Initialise Client >>
+
+        // << Connect to Server Here >>
 
         // Prompt User to Register or to Login
         while (true) {
@@ -72,8 +72,6 @@ public class Main {
             //Successfully Validated - Send to CSV File
         // Else
             //Unsuccessfully Validated - Print Error Message
-
-
 
     } // Public Static Void Main End
 } // Public Class Main End
