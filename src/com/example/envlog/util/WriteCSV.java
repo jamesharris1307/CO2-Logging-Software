@@ -7,25 +7,26 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class UserWriteCSV {
+public class WriteCSV {
     // Method to Write to UserInfo CSV File
     public static void writeUserInfoCSV(UserInfo userInfo){
 
         // Path to the CSV File
         String userCsvFilePath = "src/resources/UserInfo.csv";
-        File userInfoCSV = new File(userCsvFilePath); // Check if the File Exists
+        File userInfoCSV = new File(userCsvFilePath);
+        String userUniqueID = Tools.UniqueUserIDGenerator.generateUniqueUserID();
 
         // Create Buffered Writer to write User Input to the CSV file
         try { BufferedWriter writer = new BufferedWriter(new FileWriter(userCsvFilePath, true));
 
             // Write Header Row to the CSV File
             if (userInfoCSV.length() == 0) {
-                writer.write("Name, Username, Password");
+                writer.write("UserID, Name, Username, Password");
             }
 
             // Write Data Row to the CSV File
             writer.newLine();
-            writer.write(userInfo.getName() + "," + userInfo.getUsername() + "," + userInfo.getPassword() + ",");
+            writer.write( userUniqueID + "," + userInfo.getName() + "," + userInfo.getUsername() + "," + userInfo.getPassword() + ",");
             writer.close();
 
             //Success Message
@@ -35,6 +36,7 @@ public class UserWriteCSV {
         } catch (IOException ioe) {
             System.out.println("Couldn't write to file");
         }
+
 
     } // End writeUserInfoCSV Method
 }

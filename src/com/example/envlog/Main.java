@@ -4,35 +4,15 @@ package com.example.envlog;
 import com.example.envlog.service.RegisterUser;
 import com.example.envlog.model.UserInfo;
 import static com.example.envlog.service.Login.login;
-import static com.example.envlog.util.UserWriteCSV.writeUserInfoCSV;
+import static com.example.envlog.util.WriteCSV.writeUserInfoCSV;
 import java.util.Scanner;
 
 public class Main {
 
     // Initialise Scanner
     static Scanner scn = new Scanner(System.in);
-    static int portNumber = 1234;
 
     public static void main(String[] args) {
-
-        // Prompt User to Enter Port Number to Connect to Server
-        System.out.println("Enter Port Number: ");
-        int inputPortNumb = scn.nextInt();
-        scn.nextLine();
-
-        // Check Port Number is Correct
-        while (true) {
-            if (inputPortNumb != portNumber) {
-                System.out.println("Invalid Port Number");
-                scn.nextLine();
-            } else {
-                break;
-            }
-        }
-
-        // << Initialise Client >>
-
-        // << Connect to Server Here >>
 
         // Prompt User to Register or to Login
         while (true) {
@@ -60,15 +40,16 @@ public class Main {
             }
         }
 
-        //
 
-        // After Successful Login Continue Program
+        // << Initialise Client >>
+
+        // << Connect to Server Here >>
 
         // Print Hello Message
 
         // Prompt User to Enter CO2 Readings Info
 
-        // Validate User Info
+        // Validate User Input
 
         // If Statement
             //Successfully Validated - Send to CSV File

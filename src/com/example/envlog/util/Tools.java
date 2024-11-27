@@ -3,13 +3,14 @@ package com.example.envlog.util;
 // Imports
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Random;
 
 public class Tools {
 
     // Method to Generate Current Timestamp
     public static String generateTimeStamp() {
         LocalDateTime now = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
         return now.format(formatter);
     } // End Generate Timestamp
 
@@ -18,20 +19,24 @@ public class Tools {
         return generateTimeStamp();
     }
 
-    // Method to Convert String to ASCII
-    public static void convertToASCII(String input) {
-        for (char letter : input.toCharArray()) {
-            int asciiValue = (int) letter; // Convert Letter to it's ASCII Value
-            System.out.print(asciiValue + " ");
-        }
+    // Create a Unique User ID
+    public static class UniqueUserIDGenerator {
+        private static Random random = new Random();
 
-    } // End Convert to ASCII Method Static Void
+        public static String generateUniqueUserID() {
+            String date = generateTimeStamp();
+            int randomNumber = random.nextInt(9000) + 1000;
+
+            return String.format("R%s%04d", date, randomNumber);
+        }
+    }
 
     // Test Methods
     public static void main(String[] args) {
-        String testInput = "ASCII";
         System.out.println(generateTimeStamp());
-        convertToASCII(testInput);
+        System.out.println(UniqueUserIDGenerator.generateUniqueUserID());
+        System.out.println(UniqueUserIDGenerator.generateUniqueUserID());
     }
+
 
 } // End Bracket
