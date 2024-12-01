@@ -34,7 +34,7 @@ public class Tools {
         }
     }
 
-    public static class UserInputDate {
+    public static class UserInputData {
         public static String userInputData() {
             Scanner reader = new Scanner(System.in);
 
@@ -56,6 +56,7 @@ public class Tools {
         System.out.println(TimestampGenerator.generateTimestampFormatted());
         System.out.println(UniqueUserIDGenerator.generateUniqueUserID());
         System.out.println(UniqueUserIDGenerator.generateUniqueUserID());
+        System.out.println(UserInputData.userInputData());
     }
 
 
