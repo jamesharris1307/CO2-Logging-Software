@@ -13,7 +13,7 @@ public class Client {
 
         Scanner scn = new Scanner(System.in);
 
-//      initialising port number variables
+//      initialising port number variabless
         int portNum;
         int actualPortNum = 7777;
 
