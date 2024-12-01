@@ -24,7 +24,7 @@ public class Client {
 
                 portNum = scn.nextInt();
 
-//               if port number equal to actual port number than it will connect to server else throw exception
+//               if port number equal to actual port number than it will connect to server else throw exceptiond
                 if (portNum == actualPortNum) {
 
                     server = new Socket("localhost", portNum);
