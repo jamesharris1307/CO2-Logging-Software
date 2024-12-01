@@ -51,6 +51,7 @@ public class Main {
             }
         }
 
+        // Initialise Client
         Client cl = new Client();
 
         try {
@@ -58,28 +59,6 @@ public class Main {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
-        // Prompt User to Enter Port Number to Connect to Server
-
-
-
-        //
-
-        // After Successful Login Continue Program
-
-        // Print Hello Message
-
-        // Prompt User to Enter CO2 Readings Info
-
-
-
-
-        // Validate User Info
-
-        // If Statement
-            //Successfully Validated - Send to CSV File
-        // Else
-            //Unsuccessfully Validated - Print Error Message
 
     } // Public Static Void Main End
 } // Public Class Main End
