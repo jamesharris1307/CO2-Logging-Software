@@ -7,7 +7,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class UserWriteCSV {
+public class WriteCSV {
     // Method to Write to UserInfo CSV File
     public static void writeUserInfoCSV(UserInfo userInfo){
 
