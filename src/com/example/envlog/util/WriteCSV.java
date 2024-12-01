@@ -13,7 +13,6 @@ public class WriteCSV {
         // Path to the CSV File
         String userCsvFilePath = "src/resources/UserInfo.csv";
         File userInfoCSV = new File(userCsvFilePath);
-        String userUniqueID = Tools.UniqueUserIDGenerator.generateUniqueUserID();
 
         // Create Buffered Writer to write User Input to the CSV file
         try { BufferedWriter writer = new BufferedWriter(new FileWriter(userCsvFilePath, true));
@@ -25,7 +24,7 @@ public class WriteCSV {
 
             // Write Data Row to the CSV File
             writer.newLine();
-            writer.write( userUniqueID + "," + userInfo.getName() + "," + userInfo.getUsername() + "," + userInfo.getPassword() + ",");
+            writer.write( userInfo.getUserId() + "," + userInfo.getName() + "," + userInfo.getUsername() + "," + userInfo.getPassword() + ",");
             writer.close();
 
             //Success Message

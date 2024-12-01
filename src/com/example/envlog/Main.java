@@ -41,7 +41,7 @@ public class Main {
 
                 // If Registration is Successful
                 if (registrationSuccessful) {
-                    UserInfo userInfo = new UserInfo(registerUser.getName(), registerUser.getUsername(), registerUser.getPassword()); // Get User Info
+                    UserInfo userInfo = new UserInfo(registerUser.getUserId(), registerUser.getName(), registerUser.getUsername(), registerUser.getPassword()); // Get User Info
                     writeUserInfoCSV(userInfo); // Append to CSV File UserInfo.csv
 
                     // If User Input is not valid

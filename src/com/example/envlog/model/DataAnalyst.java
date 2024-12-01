@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class DataAnalyst extends UserInfo{
 
     public DataAnalyst(String name, String username, String password) {
-        super("Admin","Admin", "Admin");
+        super("Admin","Admin", "Admin", "Admin");
     }
 
     public void showCsvData(){
