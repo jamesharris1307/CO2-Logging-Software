@@ -5,7 +5,7 @@ import java.net.*;
 import java.util.Scanner;
 
 public class Client {
-    public static void main(String[] args) throws IOException {
+    public static void client1() throws IOException {
 //       initialising variables
         Socket server = null;
         PrintWriter serverOut = null;

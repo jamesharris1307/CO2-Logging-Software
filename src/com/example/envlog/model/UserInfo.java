@@ -22,6 +22,10 @@ public class UserInfo {
     public String getPassword() {
         return password;
     }
+
+    public String toString() {
+        return  name + "," + username+"," + password;
+    }
 }
 
 

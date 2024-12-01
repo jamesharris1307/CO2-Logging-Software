@@ -1,10 +1,12 @@
 package com.example.envlog;
-
 // Imports
+import com.example.envlog.client.*;
 import com.example.envlog.service.RegisterUser;
 import com.example.envlog.model.UserInfo;
 import static com.example.envlog.service.Login.login;
 import static com.example.envlog.util.UserWriteCSV.writeUserInfoCSV;
+
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
@@ -13,22 +15,11 @@ public class Main {
     static Scanner scn = new Scanner(System.in);
     static int portNumber = 1234;
 
+
+
     public static void main(String[] args) {
 
-        // Prompt User to Enter Port Number to Connect to Server
-        System.out.println("Enter Port Number: ");
-        int inputPortNumb = scn.nextInt();
-        scn.nextLine();
 
-        // Check Port Number is Correct
-        while (true) {
-            if (inputPortNumb != portNumber) {
-                System.out.println("Invalid Port Number");
-                scn.nextLine();
-            } else {
-                break;
-            }
-        }
 
         // << Initialise Client >>
 
@@ -41,7 +32,7 @@ public class Main {
 
             // If User Selects Login
             if (userInput.equals("L")) {
-                login(); // Execute Login Class
+                login(); // Execute Login Clas
                 break;
             // If User Selects Register
             } else if (userInput.equals("R")) {
@@ -60,6 +51,18 @@ public class Main {
             }
         }
 
+        Client cl = new Client();
+
+        try {
+            cl.client1();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        // Prompt User to Enter Port Number to Connect to Server
+
+
+
         //
 
         // After Successful Login Continue Program
@@ -67,6 +70,9 @@ public class Main {
         // Print Hello Message
 
         // Prompt User to Enter CO2 Readings Info
+
+
+
 
         // Validate User Info
 
