@@ -1,5 +1,6 @@
 package com.example.envlog.client;
 
+import com.example.envlog.service.Login;
 import com.example.envlog.util.Tools;
 import com.example.envlog.util.WriteCSV;
 
@@ -22,7 +23,7 @@ public class Client {
 
 //      initialising port number variabless
         int portNum;
-        int actualPortNum = 7777;
+        int actualPortNum = 1234;
 
 //     loop where user should input port number
         while (true) {
@@ -39,6 +40,8 @@ public class Client {
                     serverIn = new BufferedReader(new InputStreamReader(server.getInputStream()));
                     String welcome = serverIn.readLine();
                     System.out.println(welcome);
+//                    String input = serverIn.readLine();
+//                    System.out.println(input);
                     break;
 
                 }
@@ -59,16 +62,27 @@ public class Client {
         WriteCSV wrt = new WriteCSV();
 
 
+        String userID = Login.userId;
 
-        do{
+        do {
+            ;
 //            userInp.userInputData();
-            wrt.writeDataCSV();
+//            wrt.writeDataCSV();
+            serverOut.println(userID);
+
+            System.out.println("Please enter postcode");
             userInput = stdIn.readLine();
             serverOut.println(userInput);
+            System.out.println("Server: " + serverIn.readLine());
 
-            System.out.println ("Server: " + serverIn.readLine ());
-
+            System.out.println("Please enter CO2");
+            userInput = stdIn.readLine();
+            serverOut.println(userInput);
+            System.out.println("Server: " + serverIn.readLine());
+            break;
         }
+
+//        userInput = stdIn.readLine();
 //        if user write close, client execution should be stopped
         while (!userInput.equals ("close"));
 

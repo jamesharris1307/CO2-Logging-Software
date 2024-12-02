@@ -3,6 +3,9 @@ package com.example.envlog.util;
 // Imports
 import com.example.envlog.service.Login;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Random;
@@ -38,20 +41,27 @@ public class Tools {
 
     public static class UserInputData {
 
-        Login login = new Login();
+//        Login login = new Login();
 
 //        login.login();
 
 
+        public static String inputPostcode;
+
+        public static float co2Reading;
+
         static String userID = Login.userId;
-        public static String userInputData() {
+        public static String userInputData() throws IOException {
+
+
+
             Scanner reader = new Scanner(System.in);
 
 //            System.out.println(userID);
             System.out.println("Input Postcode: ");
-            String inputPostcode = reader.nextLine();
+            inputPostcode = reader.nextLine();
             System.out.println("Input CO2 Reading: ");
-            float co2Reading = reader.nextFloat();
+            co2Reading = reader.nextFloat();
 
             return userID +","+ inputPostcode+"," + co2Reading;
         }
@@ -64,7 +74,7 @@ public class Tools {
         System.out.println(TimestampGenerator.generateTimestampFormatted());
         System.out.println(UniqueUserIDGenerator.generateUniqueUserID());
         System.out.println(UniqueUserIDGenerator.generateUniqueUserID());
-        System.out.println(UserInputData.userInputData());
+//        System.out.println(UserInputData.userInputData());
     }
 
 

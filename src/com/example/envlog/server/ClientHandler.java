@@ -1,5 +1,9 @@
 package com.example.envlog.server;
 
+import com.example.envlog.service.Login;
+import com.example.envlog.util.Tools;
+import com.example.envlog.util.WriteCSV;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
@@ -12,10 +16,17 @@ class ClientHandler implements Runnable {
             client = c;
         }
 
+        WriteCSV wCSV = new WriteCSV();
+
+        Tools.UserInputData tu = new Tools.UserInputData();
+
+
         public void run () {
             BufferedReader clientIn = null;
             PrintWriter outClient = null;
             String input = null;
+            float input2;
+            String userID;
 
             try {
                 clientIn = new BufferedReader (new InputStreamReader(client.getInputStream ()));
@@ -25,15 +36,32 @@ class ClientHandler implements Runnable {
                 e.printStackTrace ();
             }
             outClient.println("Welcome to the server !");
+
+
             do {
+//                outClient.println(tu.userInputData());
+//                outClient.println(tu.userInputData());
+//
                 try {
+
+                    userID = clientIn.readLine ();
+//                    outClient.println (userID);
+
                     input = clientIn.readLine ();
                     outClient.println (input);
+
+                    input2 = Float.parseFloat(clientIn.readLine());
+                    outClient.println (input2);
+                    wCSV.writeDataCSV(userID,input, input2);
+
                 }
+
                 catch (Exception e) {
                     e.printStackTrace ();
                 }
+//                System.out.println("Finish");
             }
+
             while (!input.equals ("Close"));
 
             try {
