@@ -5,6 +5,8 @@ import java.util.Scanner;
 import com.example.envlog.util.ReadCSV;
 
 public class Login {
+
+    public static String userId;
     // Method to Login
     public static void login(){
         // Initialise Scanner
@@ -12,6 +14,7 @@ public class Login {
         // Declare Variables
         String input = "Please Enter ";
         String userCsvFilePath = "src/resources/UserInfo.csv";
+
 
         while (true) {
             // Prompt User to Login
@@ -27,6 +30,8 @@ public class Login {
 
             // Call Check Username and Password Method
             boolean usernamePasswordExists = ReadCSV.checkUsernamePassword(userCsvFilePath, username, password);
+
+            userId = ReadCSV.fetchUserId(userCsvFilePath, username, password);
 
             // Check if Username + Password Exists
             if (usernamePasswordExists) {

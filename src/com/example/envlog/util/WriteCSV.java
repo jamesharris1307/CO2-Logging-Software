@@ -41,6 +41,9 @@ public class WriteCSV {
     // Method to Write to Data CSV File
     public static void writeDataCSV(){
 
+        Tools tl = new Tools();
+        Tools.UserInputData tu = new Tools.UserInputData();
+
         // Path to the CSV File
         String dataCsvFilePath = "src/resources/CO2Data.csv";
         File dataInfoCSV = new File(dataCsvFilePath);
@@ -56,7 +59,7 @@ public class WriteCSV {
 
             // Write Data Row to the CSV File
             writer.newLine();
-            writer.write(timeStamp + "," + "userIDInput" + "," + "inputPostcode" + "," + "co2Reading");
+            writer.write(timeStamp + "," + tu.userInputData());
             writer.close();
 
             //Success Message
@@ -70,7 +73,7 @@ public class WriteCSV {
     } // End writeUserInfoCSV Method
 
     public static void main(String[] args) {
-        writeDataCSV();
+//        writeDataCSV();
     }
 
 }

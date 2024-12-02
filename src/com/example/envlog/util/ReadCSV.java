@@ -28,4 +28,19 @@ public class ReadCSV {
         }
         return false;
     }
+
+    public static String fetchUserId(String filePath, String username, String password){
+        try(BufferedReader br = new BufferedReader(new FileReader(filePath))){
+            String line;
+            while((line = br.readLine()) != null){
+                String[] parts = line.split(",");
+                if(parts[1].equals(username) && parts[2].equals(password)){
+                    return parts[0];
+                }
+            }
+        }catch (IOException e){
+            System.out.println("Error reading CSV file" + e.getMessage());
+        }
+        return null;
+    }
 }

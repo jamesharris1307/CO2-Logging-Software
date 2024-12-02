@@ -1,6 +1,8 @@
 package com.example.envlog.util;
 
 // Imports
+import com.example.envlog.service.Login;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Random;
@@ -35,17 +37,23 @@ public class Tools {
     }
 
     public static class UserInputData {
+
+        Login login = new Login();
+
+//        login.login();
+
+
+        static String userID = Login.userId;
         public static String userInputData() {
             Scanner reader = new Scanner(System.in);
 
-            System.out.println("Input UserID: ");
-            String userIDInput = reader.nextLine();
+//            System.out.println(userID);
             System.out.println("Input Postcode: ");
             String inputPostcode = reader.nextLine();
             System.out.println("Input CO2 Reading: ");
             float co2Reading = reader.nextFloat();
 
-            return userIDInput + inputPostcode + co2Reading;
+            return userID +","+ inputPostcode+"," + co2Reading;
         }
 
     }

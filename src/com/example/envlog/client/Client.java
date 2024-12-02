@@ -1,5 +1,8 @@
 package com.example.envlog.client;
 
+import com.example.envlog.util.Tools;
+import com.example.envlog.util.WriteCSV;
+
 import java.io.*;
 import java.net.*;
 import java.util.Scanner;
@@ -10,6 +13,10 @@ public class Client {
         Socket server = null;
         PrintWriter serverOut = null;
         BufferedReader serverIn = null;
+
+        Tools tools1 = new Tools();
+
+        Tools.UserInputData userInp = new Tools.UserInputData();
 
         Scanner scn = new Scanner(System.in);
 
@@ -46,12 +53,21 @@ public class Client {
 
 
         BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in));
+
         String userInput;
 
+        WriteCSV wrt = new WriteCSV();
+
+
+
         do{
+//            userInp.userInputData();
+            wrt.writeDataCSV();
             userInput = stdIn.readLine();
             serverOut.println(userInput);
+
             System.out.println ("Server: " + serverIn.readLine ());
+
         }
 //        if user write close, client execution should be stopped
         while (!userInput.equals ("close"));
