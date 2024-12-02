@@ -10,8 +10,8 @@ public class Admin extends UserInfo{
 
 
 
-    public Admin(String name, String username, String password) {
-        super(name, username, password);
+    public Admin(String userId, String name, String username, String password) {
+        super(userId, name, username, password);
     }
 
     public void showUserInof(){

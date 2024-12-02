@@ -2,6 +2,9 @@ package com.example.envlog.service;
 
 // Imports
 import java.util.Scanner;
+import com.example.envlog.util.Tools.UniqueUserIDGenerator;
+
+import com.example.envlog.util.Tools;
 import com.example.envlog.util.ValidateUserInfo;
 
 public class RegisterUser {
@@ -51,6 +54,11 @@ public class RegisterUser {
     }
 
     // Getter methods to access private fields
+    public String getUserId() {
+        String userId = Tools.UniqueUserIDGenerator.generateUniqueUserID();;
+        return userId;
+    }
+
     public String getName() {
         return name;
     }
