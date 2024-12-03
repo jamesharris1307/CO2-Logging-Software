@@ -1,6 +1,5 @@
 package com.example.envlog.server;
 
-import com.example.envlog.service.Login;
 import com.example.envlog.util.Tools;
 import com.example.envlog.util.WriteCSV;
 
@@ -8,17 +7,16 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.Objects;
 
 class ClientHandler implements Runnable {
-        private Socket client;
+        private final Socket client;
 
         public ClientHandler (Socket c) {
             client = c;
         }
 
         WriteCSV wCSV = new WriteCSV();
-
-        Tools.UserInputData tu = new Tools.UserInputData();
 
 //Run method
         public void run () {
@@ -38,13 +36,12 @@ class ClientHandler implements Runnable {
             catch (Exception e) {
                 e.printStackTrace ();
             }
+            assert outClient != null;
             outClient.println("Welcome to the server !");
 
 
             do {
-//                outClient.println(tu.userInputData());
-//                outClient.println(tu.userInputData());
-//
+
                 try {
 
                     userID = clientIn.readLine ();
@@ -55,7 +52,7 @@ class ClientHandler implements Runnable {
 
                     input2 = Float.parseFloat(clientIn.readLine());
                     outClient.println (input2);
-                    wCSV.writeDataCSV(userID,input, input2);
+                    WriteCSV.writeDataCSV(userID,input, input2);
 
                 }
 
@@ -65,7 +62,7 @@ class ClientHandler implements Runnable {
 //                System.out.println("Finish");
             }
 
-            while (!input.equals ("close"));
+            while (!Objects.equals(input, "close"));
 
             try {
                 clientIn.close ();

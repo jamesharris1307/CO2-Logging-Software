@@ -1,8 +1,6 @@
 package com.example.envlog.client;
 
 import com.example.envlog.service.Login;
-import com.example.envlog.util.Tools;
-import com.example.envlog.util.WriteCSV;
 
 import java.io.*;
 import java.net.*;
@@ -11,17 +9,13 @@ import java.util.Scanner;
 public class Client {
     public static void client1() throws IOException {
 //       initialising variables
-        Socket server = null;
-        PrintWriter serverOut = null;
-        BufferedReader serverIn = null;
-
-        Tools tools1 = new Tools();
-
-        Tools.UserInputData userInp = new Tools.UserInputData();
+        Socket server;
+        PrintWriter serverOut;
+        BufferedReader serverIn;
 
         Scanner scn = new Scanner(System.in);
 
-//      initialising port number variabless
+//      initialising port number variables
         int portNum;
         int actualPortNum = 1234;
 
@@ -40,8 +34,6 @@ public class Client {
                     serverIn = new BufferedReader(new InputStreamReader(server.getInputStream()));
                     String welcome = serverIn.readLine();
                     System.out.println(welcome);
-//                    String input = serverIn.readLine();
-//                    System.out.println(input);
                     break;
 
                 }
@@ -54,14 +46,9 @@ public class Client {
             }
         }
 
-
         BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in));
 
-
         String userInput;
-
-        WriteCSV wrt = new WriteCSV();
-
 
         String userID = Login.userId;
 
@@ -90,8 +77,5 @@ public class Client {
                 break;
             }
         }
-
-
-
     }
 }

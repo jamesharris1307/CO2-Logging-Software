@@ -1,9 +1,7 @@
 package com.example.envlog.model;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.util.Scanner;
 
 public class Admin extends UserInfo{
@@ -12,13 +10,13 @@ public class Admin extends UserInfo{
         super(userId, "Admin", "Admin", "Admin");
     }
 
-    public void showUserInof(){
+    public void showUserInfo(){
 
+        // Variables
         String fileNameDefined = "src/resources/UserInfo.csv";
         File file = new File(fileNameDefined);
 
         try{
-
             Scanner inputStream = new Scanner(file);
             //loops line-by-line
             inputStream.nextLine();
@@ -39,10 +37,6 @@ public class Admin extends UserInfo{
 
             e.printStackTrace();
         }
-
-    }
-
-        public static void main(String[] args) {
 
     }
 

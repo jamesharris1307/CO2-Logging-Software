@@ -5,6 +5,7 @@ import com.example.envlog.service.RegisterUser;
 import com.example.envlog.model.UserInfo;
 import static com.example.envlog.service.Login.login;
 import static com.example.envlog.util.WriteCSV.writeUserInfoCSV;
+import static com.example.envlog.util.ReadCSV.
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -38,6 +39,14 @@ public class Main {
                     // If User Input is not valid
                 } else {
                     System.out.println("Invalid Input");
+                }
+            } else if (userInput.equalsIgnoreCase("A")) {
+                System.out.println("(1) to Input CO2 Data or (2) to Read CSV File");
+                String userInputAdmin = scn.nextLine();
+                if (userInputAdmin.equals("1")) {
+                    break;
+                } else if (userInputAdmin.equals("2")) {
+
                 }
             }
         }

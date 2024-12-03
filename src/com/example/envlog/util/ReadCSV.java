@@ -4,6 +4,7 @@ package com.example.envlog.util;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class ReadCSV {
     // Method to check if User Input Username Exists in UserInfo CSV File
@@ -41,6 +42,22 @@ public class ReadCSV {
                 if(parts[2].equals(username) && parts[3].equals(password)){
                     return parts[0];
                 }
+            }
+        }catch (IOException e){
+            System.out.println("Error reading CSV file" + e.getMessage());
+        }
+        return null;
+    }
+
+    public static ArrayList readCSVFile(String filePath, String userID, String inputPostcode, float co2Reading){
+        try(BufferedReader br = new BufferedReader(new FileReader(filePath))){
+            String line;
+            br.readLine();
+            // Loop through CSV File
+            while((line = br.readLine()) != null){
+                String[] parts = line.split(",");
+                return parts[0,1,2,3];
+
             }
         }catch (IOException e){
             System.out.println("Error reading CSV file" + e.getMessage());

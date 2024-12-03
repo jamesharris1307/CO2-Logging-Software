@@ -10,7 +10,7 @@ public class DataAnalyst extends UserInfo{
         super("Admin","Admin", "Admin", "Admin");
     }
 
-    public void showCsvData(){
+    public static void showCsvData(){
 
         String fileNameDefined = "src/resources/CO2Data.csv";
         File file = new File(fileNameDefined);
@@ -37,6 +37,10 @@ public class DataAnalyst extends UserInfo{
 
             e.printStackTrace();
         }
+
+    }
+
+    public static void main(String[] args) {
 
     }
 
