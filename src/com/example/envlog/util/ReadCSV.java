@@ -15,9 +15,9 @@ public class ReadCSV {
             // Search each line
             while ((line = br.readLine()) != null) {
                 String[] data = line.split(","); // Split line into fields
-                if (data.length > 2) {
-                    String storedUsername = data[1].trim(); // Username is Index 1
-                    String storedPassword = data[2].trim(); // Password is Index 2
+                if (data.length > 3) {
+                    String storedUsername = data[2].trim(); // Username is Index 1
+                    String storedPassword = data[3].trim(); // Password is Index 2
                     if (storedUsername.equals(username) && storedPassword.equals(password)) {
                         return true;
                     }
@@ -29,12 +29,16 @@ public class ReadCSV {
         return false;
     }
 
+//    Method for fetching userId on the logging phase
     public static String fetchUserId(String filePath, String username, String password){
         try(BufferedReader br = new BufferedReader(new FileReader(filePath))){
             String line;
+            br.readLine();
+//           while loop through csv file
             while((line = br.readLine()) != null){
                 String[] parts = line.split(",");
-                if(parts[1].equals(username) && parts[2].equals(password)){
+//                checking username, password and returning userid
+                if(parts[2].equals(username) && parts[3].equals(password)){
                     return parts[0];
                 }
             }

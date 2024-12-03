@@ -11,7 +11,7 @@ public class Admin extends UserInfo{
 
 
     public Admin(String userId, String name, String username, String password) {
-        super(userId, name, username, password);
+        super(userId, "Admin", "Admin", "Admin");
     }
 
     public void showUserInof(){

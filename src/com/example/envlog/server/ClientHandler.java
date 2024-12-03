@@ -20,8 +20,9 @@ class ClientHandler implements Runnable {
 
         Tools.UserInputData tu = new Tools.UserInputData();
 
-
+//Run method
         public void run () {
+//          Initialising variables
             BufferedReader clientIn = null;
             PrintWriter outClient = null;
             String input = null;
@@ -29,7 +30,9 @@ class ClientHandler implements Runnable {
             String userID;
 
             try {
+//              Getting client input
                 clientIn = new BufferedReader (new InputStreamReader(client.getInputStream ()));
+//              Print something to the client
                 outClient = new PrintWriter (client.getOutputStream (), true);
             }
             catch (Exception e) {
@@ -62,7 +65,7 @@ class ClientHandler implements Runnable {
 //                System.out.println("Finish");
             }
 
-            while (!input.equals ("Close"));
+            while (!input.equals ("close"));
 
             try {
                 clientIn.close ();
