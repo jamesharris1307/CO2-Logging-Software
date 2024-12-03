@@ -23,7 +23,6 @@ public class Server {
             while (listening)
                 new Thread (new ClientHandler (serverSocket.accept())).start();
 
-
             serverSocket.close();
         }
 

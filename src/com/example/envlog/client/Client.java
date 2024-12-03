@@ -54,13 +54,11 @@ public class Client {
             }
         }
 
-
         BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in));
 
         String userInput;
 
         WriteCSV wrt = new WriteCSV();
-
 
         String userID = Login.userId;
 

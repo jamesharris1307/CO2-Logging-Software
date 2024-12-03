@@ -13,17 +13,8 @@ public class Main {
 
     // Initialise Scanner
     static Scanner scn = new Scanner(System.in);
-    static int portNumber = 1234;
-
-
 
     public static void main(String[] args) {
-
-
-
-        // << Initialise Client >>
-
-        // << Connect to Server Here >>
 
         // Prompt User to Register or to Login
         while (true) {

@@ -12,7 +12,7 @@ public class DataAnalyst extends UserInfo{
 
     public void showCsvData(){
 
-        String fileNameDefined = "src/resources/co2-loggings-data.csv";
+        String fileNameDefined = "src/resources/CO2Data.csv";
         File file = new File(fileNameDefined);
 
         try{
