@@ -22,11 +22,11 @@ public class Main {
             String userInput = scn.nextLine();
 
             // If User Selects Login
-            if (userInput.equals("L")) {
+            if (userInput.equalsIgnoreCase("L")) {
                 login(); // Execute Login Clas
                 break;
             // If User Selects Register
-            } else if (userInput.equals("R")) {
+            } else if (userInput.equalsIgnoreCase("R")) {
                 RegisterUser registerUser = new RegisterUser(); // Create New Register Object
                 boolean registrationSuccessful = registerUser.registerUser(); // Validate User Registration Input
 

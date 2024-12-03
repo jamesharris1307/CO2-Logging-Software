@@ -6,15 +6,15 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.Scanner;
 
-public class Admin {
+public class Admin extends UserInfo{
 
 
 
-//    public Admin(String userId, String name, String username, String password) {
-//        super(userId, "Admin", "Admin", "Admin");
-//    }
+    public Admin(String userId, String name, String username, String password) {
+        super(userId, "Admin", "Admin", "Admin");
+    }
 
-    public void showUserInfo(){
+    public void showUserInof(){
 
         String fileNameDefined = "src/resources/UserInfo.csv";
         File file = new File(fileNameDefined);
