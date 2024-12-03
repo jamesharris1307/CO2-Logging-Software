@@ -11,9 +11,9 @@ import java.util.Scanner;
 public class Client {
     public static void client1() throws IOException {
 //       initialising variables
-        Socket server = null;
-        PrintWriter serverOut = null;
-        BufferedReader serverIn = null;
+        Socket server;
+        PrintWriter serverOut;
+        BufferedReader serverIn;
 
         Tools tools1 = new Tools();
 
@@ -21,7 +21,7 @@ public class Client {
 
         Scanner scn = new Scanner(System.in);
 
-//      initialising port number variabless
+//      initialising port number variables
         int portNum;
         int actualPortNum = 1234;
 
