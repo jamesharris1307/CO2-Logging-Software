@@ -63,7 +63,6 @@ public class Client {
         String userID = Login.userId;
 
         do {
-            ;
 //            userInp.userInputData();
 //            wrt.writeDataCSV();
             serverOut.println(userID);
