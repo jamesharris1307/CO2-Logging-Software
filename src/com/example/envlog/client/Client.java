@@ -1,5 +1,6 @@
 package com.example.envlog.client;
 
+import com.example.envlog.model.Admin;
 import com.example.envlog.service.Login;
 import com.example.envlog.util.Tools;
 import com.example.envlog.util.WriteCSV;
@@ -21,7 +22,7 @@ public class Client {
 
         Scanner scn = new Scanner(System.in);
 
-//      initialising port number variabless
+//      initialising port number variables
         int portNum;
         int actualPortNum = 1234;
 
@@ -40,8 +41,6 @@ public class Client {
                     serverIn = new BufferedReader(new InputStreamReader(server.getInputStream()));
                     String welcome = serverIn.readLine();
                     System.out.println(welcome);
-//                    String input = serverIn.readLine();
-//                    System.out.println(input);
                     break;
 
                 }
@@ -55,41 +54,15 @@ public class Client {
         }
 
 
-        BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in));
 
 
-        String userInput;
-
-        WriteCSV wrt = new WriteCSV();
+        userAuthorisation.inputData(serverOut, serverIn);
 
 
-        String userID = Login.userId;
 
-        while(true) {
-            System.out.println("Would you like to add Record or Close connection: Enter 1 or 2 \n 1) Add record \n 2) Close connection ");
-            int num = scn.nextInt();
 
-            if (num == 1) {
-                serverOut.println(userID);
 
-                System.out.println("Please enter postcode");
-                userInput = stdIn.readLine();
-                serverOut.println(userInput);
-                System.out.println("Server: " + serverIn.readLine());
 
-                System.out.println("Please enter CO2");
-                userInput = stdIn.readLine();
-                serverOut.println(userInput);
-                System.out.println("Server: " + serverIn.readLine());
-
-            } else {
-                // close, client execution should be stopped
-                serverOut.close();
-                serverIn.close();
-                server.close();
-                break;
-            }
-        }
 
 
 
