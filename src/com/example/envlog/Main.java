@@ -5,7 +5,8 @@ import com.example.envlog.service.RegisterUser;
 import com.example.envlog.model.UserInfo;
 import static com.example.envlog.service.Login.login;
 import static com.example.envlog.util.WriteCSV.writeUserInfoCSV;
-import static com.example.envlog.util.ReadCSV.
+import com.example.envlog.model.Admin;
+import com.example.envlog.util.ReadCSV;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -46,7 +47,7 @@ public class Main {
                 if (userInputAdmin.equals("1")) {
                     break;
                 } else if (userInputAdmin.equals("2")) {
-
+                    Admin.showData();
                 }
             }
         }
