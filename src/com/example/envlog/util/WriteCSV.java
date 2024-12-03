@@ -20,16 +20,13 @@ public class WriteCSV {
 
             // Write Header Row to the CSV File
             if (userInfoCSV.length() == 0) {
-                writer.write("UserID, Name, Username, Password");
+                writer.write( "Type, UserID, Name, Username, Password");
             }
 
             // Write Data Row to the CSV File
             writer.newLine();
-            writer.write( userInfo.getUserId() + "," + userInfo.getName() + "," + userInfo.getUsername() + "," + userInfo.getPassword() + ",");
+            writer.write(1 + "," + userInfo.getUserId() + "," + userInfo.getName() + "," + userInfo.getUsername() + "," + userInfo.getPassword() + ",");
             writer.close();
-
-            //Success Message
-            System.out.println("Registration Successful");
 
             // Error Handling
         } catch (IOException ioe) {

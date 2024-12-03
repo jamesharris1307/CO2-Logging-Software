@@ -16,7 +16,7 @@ public class userAuthorisation {
 
     static String userID = Login.userId;
 
-    static Admin ad = new Admin();
+    //static Admin ad = new Admin();
 
     static Scanner scn = new Scanner(System.in);
 
