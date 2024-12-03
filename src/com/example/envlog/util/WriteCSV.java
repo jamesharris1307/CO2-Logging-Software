@@ -70,6 +70,7 @@ public class WriteCSV {
     } // End writeUserInfoCSV Method
 
     public static void main(String[] args) {
+        // Test
         writeDataCSV();
     }
 
