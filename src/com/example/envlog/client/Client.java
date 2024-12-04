@@ -24,7 +24,7 @@ public class Client {
 
 //      initialising port number variables
         int portNum;
-        int actualPortNum = 1234;
+        int actualPortNum = 3333;
 
 //     loop where user should input port number
         while (true) {
