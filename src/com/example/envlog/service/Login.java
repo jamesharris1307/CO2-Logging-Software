@@ -42,7 +42,7 @@ public class Login {
                 System.out.println("Login Successful");
                 break;
             } else {
-                System.out.println("Login Failed");
+                System.out.println("Login Failed. Invalid Username or Password");
             }
         }
 

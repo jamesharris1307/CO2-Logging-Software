@@ -72,9 +72,11 @@ public class Client {
                         Admin.showUserInfo();
                     } else if (num==2) {
                         Admin.showCsvData();
+                    } else if (num==3) {
+                        break;
                     }
                     else{
-                        break;
+                        System.out.println("Invalid Input");
                     }
 
                 }
