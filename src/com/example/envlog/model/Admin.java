@@ -14,7 +14,7 @@ public class Admin extends UserInfo{
         super(userId, "Admin", "Admin", "Admin");
     }
 
-    public void showUserInof(){
+    public static void showUserInfo(){
 
         String fileNameDefined = "src/resources/UserInfo.csv";
         File file = new File(fileNameDefined);
@@ -25,7 +25,7 @@ public class Admin extends UserInfo{
             //loops line-by-line
             inputStream.nextLine();
 
-            System.out.println("UserID,Name,Username,Password");
+            System.out.println("UserType,UserID,Name,Username,Password");
             while(inputStream.hasNext()){
 
 //              reading line by line and print this data in to console

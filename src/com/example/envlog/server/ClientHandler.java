@@ -42,13 +42,10 @@ class ClientHandler implements Runnable {
 
 
             do {
-//                outClient.println(tu.userInputData());
-//                outClient.println(tu.userInputData());
-//
+
                 try {
 
                     userID = clientIn.readLine ();
-//                    outClient.println (userID);
 
                     input = clientIn.readLine ();
                     outClient.println (input);
@@ -57,13 +54,15 @@ class ClientHandler implements Runnable {
                     outClient.println (input2);
                     wCSV.writeDataCSV(userID,input, input2);
 
+                    input = clientIn.readLine ();
                 }
 
                 catch (Exception e) {
                     e.printStackTrace ();
                 }
-//                System.out.println("Finish");
+
             }
+
 
             while (!input.equals ("close"));
 

@@ -1,12 +1,15 @@
 package com.example.envlog.client;
 
 import com.example.envlog.model.Admin;
+import com.example.envlog.model.DataAnalyst;
 import com.example.envlog.service.Login;
+import com.example.envlog.util.ReadCSV;
 import com.example.envlog.util.Tools;
 import com.example.envlog.util.WriteCSV;
 
 import java.io.*;
 import java.net.*;
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class Client {
@@ -16,9 +19,9 @@ public class Client {
         PrintWriter serverOut = null;
         BufferedReader serverIn = null;
 
-        Tools tools1 = new Tools();
+        String userInput;
 
-        Tools.UserInputData userInp = new Tools.UserInputData();
+        BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in));
 
         Scanner scn = new Scanner(System.in);
 
@@ -53,15 +56,58 @@ public class Client {
             }
         }
 
+        ReadCSV rCSV = new ReadCSV();
 
+        String cl;
 
+        if(Login.userType == 1){
+            userAuthorisation.inputData(serverOut, serverIn);
+        }
+            else if(Login.userType == 2) {
+                System.out.println("Admin");
+                while(true) {
+                    System.out.println("Would you like to show user (data)information or show Co2 data: Enter 1 or 2 or 3 \n 1) Show user (data)information \n 2) Show Co2 data \n 3) To exit" );
+                    int num = scn.nextInt();
+                    if(num==1) {
+                        Admin.showUserInfo();
+                    } else if (num==2) {
+                        Admin.showCsvData();
+                    }
+                    else{
+                        break;
+                    }
 
-        userAuthorisation.inputData(serverOut, serverIn);
+                }
 
+            }
+        else if(Login.userType == 3) {
+            System.out.println("Analyst");
+            while(true) {
+                System.out.println("Would you like to show user (data)information or show Co2 data: Enter 1 or 2  \n 1) Show Co2 data \n 2) Close" );
+                int num = scn.nextInt();
+                if(num==1) {
+                    DataAnalyst.showCsvData();
+                } else if (num==2) {
+                   break;
+                }
 
+            }
 
+        }
 
+        while(true){
 
+            System.out.println("Please input Close to exit program");
+            userInput = stdIn.readLine();
+            if(userInput.equals("close") || userInput.equals("Close")){
+                System.out.println("Closing");
+                serverOut.close();
+                serverIn.close();
+                server.close();
+                break;
+            }
+
+        }
 
 
 

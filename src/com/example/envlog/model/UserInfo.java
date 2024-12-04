@@ -1,5 +1,9 @@
 package com.example.envlog.model;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 public class UserInfo {
     private String userId;
     private String name;
@@ -29,6 +33,35 @@ public class UserInfo {
 
     public String toString() {
         return userId + "," + name + "," + username + "," + password;
+    }
+
+    public static void showCsvData() {
+
+        String fileNameDefined = "src/resources/CO2Data.csv";
+        File file = new File(fileNameDefined);
+
+        try {
+
+            Scanner inputStream = new Scanner(file);
+            //loops line-by-line
+            inputStream.nextLine();
+
+            System.out.println("TimeStamp,UserID,Postcode,Co2(ppm)");
+            while (inputStream.hasNext()) {
+
+//              reading line by line and print this data in to console
+                String data = inputStream.next();
+                System.out.println(data.toString());
+
+            }
+            //  close scanner
+            inputStream.close();
+
+
+        } catch (FileNotFoundException e) {
+
+            e.printStackTrace();
+        }
     }
 }
 
