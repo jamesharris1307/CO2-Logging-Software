@@ -5,10 +5,10 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class UserInfo {
-    private String userId;
-    private String name;
-    private String username;
-    private String password;
+    private final String userId;
+    private final String name;
+    private final String username;
+    private final String password;
 
     public UserInfo(String userId, String name, String username, String password) {
         this.userId = userId;
@@ -51,7 +51,7 @@ public class UserInfo {
 
 //              reading line by line and print this data in to console
                 String data = inputStream.next();
-                System.out.println(data.toString());
+                System.out.println(data);
 
             }
             //  close scanner
@@ -59,8 +59,7 @@ public class UserInfo {
 
 
         } catch (FileNotFoundException e) {
-
-            e.printStackTrace();
+            System.out.println("File not found" + e.getMessage());
         }
     }
 }

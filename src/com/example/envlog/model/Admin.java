@@ -1,16 +1,14 @@
 package com.example.envlog.model;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.util.Scanner;
 
 public class Admin extends UserInfo{
 
 
 
-    public Admin(String userId, String name, String username, String password) {
+    public Admin(String userId) {
         super(userId, "Admin", "Admin", "Admin");
     }
 
@@ -30,7 +28,7 @@ public class Admin extends UserInfo{
 
 //              reading line by line and print this data in to console
                 String data = inputStream.next();
-                System.out.println(data.toString());
+                System.out.println(data);
 
             }
             //  close scanner
@@ -38,8 +36,7 @@ public class Admin extends UserInfo{
 
 
         }catch (FileNotFoundException e){
-
-            e.printStackTrace();
+            System.out.println("File not found" + e.getMessage());
         }
 
     }

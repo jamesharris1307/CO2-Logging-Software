@@ -1,6 +1,7 @@
 package com.example.envlog.service;
 
 // Imports
+import java.util.Objects;
 import java.util.Scanner;
 import com.example.envlog.util.ReadCSV;
 
@@ -35,7 +36,7 @@ public class Login {
 
             userId = ReadCSV.fetchUserId(userCsvFilePath, username, password);
 
-            userType = Integer.parseInt(ReadCSV.fetchUserType(userCsvFilePath, username, password));
+            userType = Integer.parseInt(Objects.requireNonNull(ReadCSV.fetchUserType(userCsvFilePath, username, password)));
 
             // Check if Username + Password Exists
             if (usernamePasswordExists) {

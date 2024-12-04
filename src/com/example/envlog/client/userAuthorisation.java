@@ -1,6 +1,5 @@
 package com.example.envlog.client;
 
-import com.example.envlog.model.Admin;
 import com.example.envlog.service.Login;
 
 import java.io.BufferedReader;

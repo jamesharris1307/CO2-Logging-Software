@@ -43,11 +43,8 @@ public class Main {
             }
         }
 
-        // Initialise Client
-        Client cl = new Client();
-
         try {
-            cl.client1();
+            Client.client1();
             System.out.println("Finished");
         } catch (IOException e) {
             throw new RuntimeException(e);

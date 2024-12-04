@@ -8,8 +8,6 @@ public class Server {
             ServerSocket serverSocket = null;
             boolean listening = true;
 
-            String welcomeMsg;
-
             try {
                 serverSocket = new ServerSocket(3333);
 

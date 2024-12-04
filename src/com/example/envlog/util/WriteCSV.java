@@ -1,6 +1,5 @@
 package com.example.envlog.util;
 import com.example.envlog.model.UserInfo;
-import com.example.envlog.service.Login;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -37,16 +36,6 @@ public class WriteCSV {
 
     // Method to Write to Data CSV File
     public static void writeDataCSV(String userID, String inputPostcode, float co2Reading){
-
-        Tools tl = new Tools();
-
-        Tools.UserInputData tu = new Tools.UserInputData();
-
-//        String userID = Login.userId;
-
-//        String inputPostcode =  new Tools.UserInputData().inputPostcode;
-//
-//        float co2Reading = new Tools.UserInputData().co2Reading;
 
         // Path to the CSV File
         String dataCsvFilePath = "src/resources/CO2Data.csv";

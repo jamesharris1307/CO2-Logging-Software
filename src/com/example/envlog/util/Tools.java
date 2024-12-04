@@ -1,15 +1,9 @@
 package com.example.envlog.util;
 
 // Imports
-import com.example.envlog.service.Login;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Random;
-import java.util.Scanner;
 
 public class Tools {
 
@@ -30,40 +24,13 @@ public class Tools {
 
     // Create a Unique User ID
     public static class UniqueUserIDGenerator {
-        private static Random random = new Random();
+        private static final Random random = new Random();
 
         public static String generateUniqueUserID() {
             String date = TimestampGenerator.generateTimestamp();
             int randomNumber = random.nextInt(9000) + 1000;
             return String.format("R%s%04d", date, randomNumber);
         }
-    }
-
-    public static class UserInputData {
-
-//        Login login = new Login();
-
-//        login.login();
-
-
-        public static String inputPostcode;
-
-        public static float co2Reading;
-
-        static String userID = Login.userId;
-        public static String userInputData() throws IOException {
-
-            Scanner reader = new Scanner(System.in);
-
-//            System.out.println(userID);
-            System.out.println("Input Postcode: ");
-            inputPostcode = reader.nextLine();
-            System.out.println("Input CO2 Reading: ");
-            co2Reading = reader.nextFloat();
-
-            return userID +","+ inputPostcode+"," + co2Reading;
-        }
-
     }
 
     // Test Methods
