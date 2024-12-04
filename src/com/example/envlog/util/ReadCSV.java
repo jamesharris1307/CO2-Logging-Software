@@ -63,7 +63,7 @@ public class ReadCSV {
         }catch (IOException e){
             System.out.println("Error reading CSV file" + e.getMessage());
         }
-        return null;
+        return "0";
     }
 
 }
