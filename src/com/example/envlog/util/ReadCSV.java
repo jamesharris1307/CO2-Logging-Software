@@ -48,7 +48,7 @@ public class ReadCSV {
         return "Not Found";
     }
 
-    public static String fetchUserType(String filePath, String username, String password){
+    public static int fetchUserType(String filePath, String username, String password){
         try(BufferedReader br = new BufferedReader(new FileReader(filePath))){
             String line;
             br.readLine();
@@ -57,13 +57,13 @@ public class ReadCSV {
                 String[] parts = line.split(",");
 //                checking username, password and returning userid
                 if(parts.length > 4 && parts[3].equals(username) && parts[4].equals(password)){
-                    return parts[0];
+                    return Integer.parseInt(parts[0].trim());
                 }
             }
         }catch (IOException e){
             System.out.println("Error reading CSV file" + e.getMessage());
         }
-        return "Not Found";
+        return 0;
     }
 
 }

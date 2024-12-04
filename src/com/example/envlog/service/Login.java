@@ -36,7 +36,7 @@ public class Login {
 
             userId = ReadCSV.fetchUserId(userCsvFilePath, username, password);
 
-            userType = Integer.parseInt(Objects.requireNonNull(ReadCSV.fetchUserType(userCsvFilePath, username, password)));
+            userType = Integer.parseInt(String.valueOf(ReadCSV.fetchUserType(userCsvFilePath, username, password)));
 
             // Check if Username + Password Exists
             if (usernamePasswordExists) {
