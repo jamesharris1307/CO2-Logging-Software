@@ -20,16 +20,13 @@ public class userAuthorisation {
 
     static Scanner scn = new Scanner(System.in);
 
-
     public static void inputData(PrintWriter serverOut, BufferedReader serverIn) throws IOException {
-
 
         while(true) {
             System.out.println("Would you like to add Record or Close connection: Enter 1 or 2 \n 1) Add record \n 2) Close connection ");
-            int num = scn.nextInt();
+            String userInputChoice = scn.nextLine();
 
-
-            if (num == 1) {
+            if (userInputChoice.equals("1")) {
                 serverOut.println(userID);
 
                 System.out.println("Please enter postcode");
@@ -41,8 +38,8 @@ public class userAuthorisation {
                 userInput = stdIn.readLine();
                 serverOut.println(userInput);
                 System.out.println("Server: " + serverIn.readLine());
-
             } else{
+                System.out.println("Invalid Input");
                 break;
             }
         }

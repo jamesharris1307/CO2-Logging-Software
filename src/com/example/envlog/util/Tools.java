@@ -53,8 +53,6 @@ public class Tools {
         static String userID = Login.userId;
         public static String userInputData() throws IOException {
 
-
-
             Scanner reader = new Scanner(System.in);
 
 //            System.out.println(userID);

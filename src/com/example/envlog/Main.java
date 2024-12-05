@@ -29,16 +29,17 @@ public class Main {
             } else if (userInput.equalsIgnoreCase("R")) {
                 RegisterUser registerUser = new RegisterUser(); // Create New Register Object
                 boolean registrationSuccessful = registerUser.registerUser(); // Validate User Registration Input
-
                 // If Registration is Successful
                 if (registrationSuccessful) {
                     UserInfo userInfo = new UserInfo(registerUser.getUserId(), registerUser.getName(), registerUser.getUsername(), registerUser.getPassword()); // Get User Info
                     writeUserInfoCSV(userInfo); // Append to CSV File UserInfo.csv
-
                     // If User Input is not valid
-                } else {
+                }
+                else {
                     System.out.println("Invalid Input");
                 }
+            } else {
+                System.out.println("Invalid Input");
             }
         }
 

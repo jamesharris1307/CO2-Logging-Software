@@ -42,6 +42,7 @@ class ClientHandler implements Runnable {
                 outClient = new PrintWriter (client.getOutputStream (), true);
             }
             catch (Exception e) {
+                System.out.println("Error: " + e.getMessage());
                 e.printStackTrace ();
             }
             outClient.println("Welcome to the server !");
@@ -145,6 +146,7 @@ class ClientHandler implements Runnable {
                 }
 
                 catch (Exception e) {
+                    System.out.println("Error: " + e.getMessage());
                     e.printStackTrace ();
                 }
 
@@ -159,6 +161,7 @@ class ClientHandler implements Runnable {
                 client.close ();
             }
             catch (Exception e) {
+                System.out.println("Error: " + e.getMessage());
                 e.printStackTrace ();
             }
         }
