@@ -93,7 +93,6 @@ public class Client {
         }
 
         else if(Login.userType == 3) {
-            System.out.println("Analyst");
             while(true){
                 String menuMessage = serverIn.readLine();
                 System.out.println(menuMessage);

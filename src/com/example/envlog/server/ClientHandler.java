@@ -124,6 +124,7 @@ class ClientHandler implements Runnable {
                             case 1:
                                 String userInfo = DataAnalyst.showCsvData();
                                 outClient.println(userInfo);
+                                break;
                             case 2:
                                 break;
                             default:
