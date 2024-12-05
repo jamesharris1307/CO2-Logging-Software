@@ -120,10 +120,8 @@ class ClientHandler implements Runnable {
                             continue;
                         }
 
-
                         switch (clientChoice) {
                             case 1:
-
                                 String userInfo = DataAnalyst.showCsvData();
                                 outClient.println(userInfo);
                             case 2:
