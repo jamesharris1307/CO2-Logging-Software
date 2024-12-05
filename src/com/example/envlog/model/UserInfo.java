@@ -35,24 +35,22 @@ public class UserInfo {
         return userId + "," + name + "," + username + "," + password;
     }
 
-    public static void showCsvData() {
-
+    public static String showCsvData() {
+        StringBuffer dataBuilder = new StringBuffer();
         String fileNameDefined = "src/resources/CO2Data.csv";
         File file = new File(fileNameDefined);
 
-        try {
+        try(Scanner inputStream = new Scanner(file)) {
 
-            Scanner inputStream = new Scanner(file);
+
             //loops line-by-line
-            inputStream.nextLine();
 
-            System.out.println("TimeStamp,UserID,Postcode,Co2(ppm)");
-            while (inputStream.hasNext()) {
+
+            while (inputStream.hasNextLine()) {
 
 //              reading line by line and print this data in to console
-                String data = inputStream.next();
-                System.out.println(data.toString());
-
+                String data = inputStream.nextLine();
+                dataBuilder.append(data).append("\n");
             }
             //  close scanner
             inputStream.close();
@@ -62,6 +60,8 @@ public class UserInfo {
 
             e.printStackTrace();
         }
+
+        return dataBuilder.toString();
     }
 }
 

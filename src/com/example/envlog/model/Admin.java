@@ -14,35 +14,29 @@ public class Admin extends UserInfo{
         super(userId, "Admin", "Admin", "Admin");
     }
 
-    public static void showUserInfo(){
-
+    public static String showUserInfo() {
+        StringBuilder dataBuilder = new StringBuilder();
         String fileNameDefined = "src/resources/UserInfo.csv";
         File file = new File(fileNameDefined);
 
-        try{
+        try (Scanner inputStream = new Scanner(file)) {
 
-            Scanner inputStream = new Scanner(file);
-            //loops line-by-line
-            inputStream.nextLine();
+            // Skip the header line (or you can include it if you want)
+            if (inputStream.hasNextLine()) {
+                dataBuilder.append(inputStream.nextLine()).append("\n");
+            }
 
-            System.out.println("UserType,UserID,Name,Username,Password");
-            while(inputStream.hasNext()){
-
-//              reading line by line and print this data in to console
-                String data = inputStream.next();
-                System.out.println(data.toString());
+            // Read the entire file line by line
+            while (inputStream.hasNextLine()) {
+                String data = inputStream.nextLine();  // Read one line at a time
+                dataBuilder.append(data).append("\n");  // Append each line to the StringBuilder
 
             }
-            //  close scanner
-            inputStream.close();
 
-
-        }catch (FileNotFoundException e){
-
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
 
+        return dataBuilder.toString();
     }
-
-
 }

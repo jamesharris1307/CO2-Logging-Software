@@ -27,7 +27,7 @@ public class Client {
 
 //      initialising port number variables
         int portNum;
-        int actualPortNum = 3333;
+        int actualPortNum = 1111;
 
 //     loop where user should input port number
         while (true) {
@@ -44,6 +44,7 @@ public class Client {
                     serverIn = new BufferedReader(new InputStreamReader(server.getInputStream()));
                     String welcome = serverIn.readLine();
                     System.out.println(welcome);
+                    serverOut.println(Login.userType);
                     break;
 
                 }
@@ -56,39 +57,64 @@ public class Client {
             }
         }
 
-        ReadCSV rCSV = new ReadCSV();
 
-        String cl;
 
         if(Login.userType == 1){
             userAuthorisation.inputData(serverOut, serverIn);
         }
-            else if(Login.userType == 2) {
-                System.out.println("Admin");
-                while(true) {
-                    System.out.println("Would you like to show user (data)information or show Co2 data: Enter 1 or 2 or 3 \n 1) Show user (data)information \n 2) Show Co2 data \n 3) To exit" );
-                    int num = scn.nextInt();
-                    if(num==1) {
-                        Admin.showUserInfo();
-                    } else if (num==2) {
-                        Admin.showCsvData();
-                    }
-                    else{
-                        break;
-                    }
+        else if (Login.userType == 2) {
+            while (true) {
+                String menuMessage = serverIn.readLine();
+                System.out.println(menuMessage);
 
+
+                int userChoice = scn.nextInt();
+                scn.nextLine();
+
+
+                serverOut.println(userChoice);
+                serverOut.flush();
+
+                String serverResponse = serverIn.readLine();
+                System.out.println(serverResponse);
+
+                if (userChoice == 1 || userChoice == 2) {
+
+                    String additionalData;
+                    while (!(additionalData = serverIn.readLine()).isEmpty()) {
+                        System.out.println(additionalData);
+                    }
+                } else if (userChoice == 3) {
+                    break;
                 }
 
+
             }
+        }
+
         else if(Login.userType == 3) {
             System.out.println("Analyst");
-            while(true) {
-                System.out.println("Would you like to show user (data)information or show Co2 data: Enter 1 or 2  \n 1) Show Co2 data \n 2) Close" );
-                int num = scn.nextInt();
-                if(num==1) {
-                    DataAnalyst.showCsvData();
-                } else if (num==2) {
-                   break;
+            while(true){
+                String menuMessage = serverIn.readLine();
+                System.out.println(menuMessage);
+
+                int userChoice = scn.nextInt();
+
+                serverOut.println(userChoice);
+                serverOut.flush();
+
+                String serverResponse = serverIn.readLine();
+                System.out.println(serverResponse);
+
+                if (userChoice== 1) {
+
+                    String additionalData;
+                    while (!(additionalData = serverIn.readLine()).isEmpty()) {
+                        System.out.println(additionalData);
+                    }
+                }
+                else if (userChoice == 2){
+                    break;
                 }
 
             }

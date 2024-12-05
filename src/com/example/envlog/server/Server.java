@@ -11,12 +11,12 @@ public class Server {
             String welcomeMsg;
 
             try {
-                serverSocket = new ServerSocket(3333);
+                serverSocket = new ServerSocket(1111);
 
             }
             catch (IOException e)
             {
-                System.err.println("Could not listen on port: 3333.");
+                System.err.println("Could not listen on port: 1111.");
                 System.exit(-1);
             }
 
