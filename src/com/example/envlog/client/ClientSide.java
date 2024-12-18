@@ -12,7 +12,7 @@ import java.net.*;
 import java.sql.SQLOutput;
 import java.util.Scanner;
 
-public class Client {
+public class ClientSide {
     public static void client1() throws IOException {
 //       initialising variables
         Socket server = null;
@@ -27,7 +27,7 @@ public class Client {
 
 //      initialising port number variables
         int portNum;
-        int actualPortNum = 1111;
+        int actualPortNum = 2222;
 
 //     loop where user should input port number
         while (true) {

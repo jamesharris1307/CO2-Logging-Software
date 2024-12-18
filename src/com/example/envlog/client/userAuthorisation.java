@@ -15,8 +15,7 @@ public class userAuthorisation {
     static BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in));
 
     static String userID = Login.userId;
-
-    //static Admin ad = new Admin();
+    
 
     static Scanner scn = new Scanner(System.in);
 
@@ -38,14 +37,14 @@ public class userAuthorisation {
                 userInput = stdIn.readLine();
                 serverOut.println(userInput);
                 System.out.println("Server: " + serverIn.readLine());
-            } else{
+            }
+            else{
                 System.out.println("Invalid Input");
                 break;
             }
         }
     }
 
-//    public static void Admin
 
 
 }

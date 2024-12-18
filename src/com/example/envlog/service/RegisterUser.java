@@ -2,6 +2,8 @@ package com.example.envlog.service;
 
 // Imports
 import java.util.Scanner;
+
+import com.example.envlog.model.UserInfo;
 import com.example.envlog.util.Tools.UniqueUserIDGenerator;
 
 import com.example.envlog.util.Tools;

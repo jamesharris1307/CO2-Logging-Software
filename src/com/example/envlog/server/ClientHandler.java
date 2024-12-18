@@ -22,9 +22,7 @@ class ClientHandler implements Runnable {
 
         WriteCSV wCSV = new WriteCSV();
 
-        Tools.UserInputData tu = new Tools.UserInputData();
 
-        Scanner scn = new Scanner(System.in);
 
 //Run method
         public void run () {

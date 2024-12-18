@@ -41,11 +41,6 @@ public class Tools {
 
     public static class UserInputData {
 
-//        Login login = new Login();
-
-//        login.login();
-
-
         public static String inputPostcode;
 
         public static float co2Reading;
@@ -55,7 +50,6 @@ public class Tools {
 
             Scanner reader = new Scanner(System.in);
 
-//            System.out.println(userID);
             System.out.println("Input Postcode: ");
             inputPostcode = reader.nextLine();
             System.out.println("Input CO2 Reading: ");

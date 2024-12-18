@@ -35,8 +35,7 @@ public class Main {
                     writeUserInfoCSV(userInfo); // Append to CSV File UserInfo.csv
                     // If User Input is not valid
                 }
-                else {
-                    System.out.println("Invalid Input");
+                else {System.out.println("Invalid Input");
                 }
             } else {
                 System.out.println("Invalid Input");
@@ -44,7 +43,7 @@ public class Main {
         }
 
         // Initialise Client
-        Client cl = new Client();
+        ClientSide cl = new ClientSide();
 
         try {
             cl.client1();
