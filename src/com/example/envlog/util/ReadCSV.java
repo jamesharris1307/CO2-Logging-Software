@@ -16,8 +16,8 @@ public class ReadCSV {
             while ((line = br.readLine()) != null) {
                 String[] data = line.split(","); // Split line into fields
                 if (data.length > 4) {
-                    String storedUsername = data[3].trim(); // Username is Index 2
-                    String storedPassword = data[4].trim(); // Password is Index 3
+                    String storedUsername = data[3].trim(); // Username is Index 3
+                    String storedPassword = data[4].trim(); // Password is Index 4
                     if (storedUsername.equals(username) && storedPassword.equals(password)) {
                         return true;
                     }
