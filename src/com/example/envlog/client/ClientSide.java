@@ -1,15 +1,9 @@
 package com.example.envlog.client;
 
-import com.example.envlog.model.Admin;
-import com.example.envlog.model.DataAnalyst;
 import com.example.envlog.service.Login;
-import com.example.envlog.util.ReadCSV;
-import com.example.envlog.util.Tools;
-import com.example.envlog.util.WriteCSV;
 
 import java.io.*;
 import java.net.*;
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class ClientSide {
@@ -60,7 +54,7 @@ public class ClientSide {
 
 
         if(Login.userType == 1){
-            userAuthorisation.inputData(serverOut, serverIn);
+            UserDataHandler.inputData(serverOut, serverIn);
         }
         else if (Login.userType == 2) {
             while (true) {

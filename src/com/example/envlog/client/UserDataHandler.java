@@ -1,6 +1,5 @@
 package com.example.envlog.client;
 
-import com.example.envlog.model.Admin;
 import com.example.envlog.service.Login;
 
 import java.io.BufferedReader;
@@ -9,7 +8,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
-public class userAuthorisation {
+public class UserDataHandler {
     static String userInput;
 
     static BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in));
