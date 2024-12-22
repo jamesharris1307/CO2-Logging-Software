@@ -16,7 +16,7 @@ public class Server {
             }
             catch (IOException e)
             {
-                System.err.println("Could not listen on port: 1111.");
+                System.err.println("Could not listen on port: 2222.");
                 System.exit(-1);
             }
 
