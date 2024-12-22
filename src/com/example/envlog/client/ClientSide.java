@@ -33,7 +33,7 @@ public class ClientSide {
 //               if port number equal to actual port number than it will connect to server else throw exception
                 if (portNum == actualPortNum) {
 
-                    server = new Socket("localhost", portNum);
+                    server = new Socket("192.168.86.50", portNum);
                     serverOut = new PrintWriter(server.getOutputStream(), true);
                     serverIn = new BufferedReader(new InputStreamReader(server.getInputStream()));
                     String welcome = serverIn.readLine();
