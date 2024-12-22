@@ -11,7 +11,7 @@ public class Server {
             String welcomeMsg;
 
             try {
-                serverSocket = new ServerSocket(2222);
+                serverSocket = new ServerSocket(1111);
 
             }
             catch (IOException e)

@@ -47,7 +47,6 @@ public class Main {
 
         try {
             cl.client1();
-            System.out.println("Finished");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

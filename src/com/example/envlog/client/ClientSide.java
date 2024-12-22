@@ -21,7 +21,7 @@ public class ClientSide {
 
 //      initialising port number variables
         int portNum;
-        int actualPortNum = 2222;
+        int actualPortNum = 1111;
 
 //     loop where user should input port number
         while (true) {
@@ -120,6 +120,7 @@ public class ClientSide {
             userInput = stdIn.readLine();
             if(userInput.equals("close") || userInput.equals("Close")){
                 System.out.println("Closing");
+                System.out.println("Say goodbye to server");
                 serverOut.close();
                 serverIn.close();
                 server.close();

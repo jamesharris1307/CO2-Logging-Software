@@ -66,7 +66,7 @@ class ClientHandler implements Runnable {
 
                 else if(typerC == 2){
                     while (true) {
-                        outClient.println("Would you like to show user (data) information or show CO2 data: Enter 1, 2, or 3: 1) Show User Information; 2)Show CSV data; 3) Close program");
+                        outClient.println("Would you like to show user (data) information or show CO2 data: Enter 1, 2, or 3: 1) Show User Information; 2)Show CO2 logging data; 3) Close program");
 
                         String clientChoiceStr = clientIn.readLine();
 
