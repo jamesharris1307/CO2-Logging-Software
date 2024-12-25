@@ -53,15 +53,16 @@ class ClientHandler implements Runnable {
                 typerC = Integer.parseInt(clientIn.readLine());
 
                 if(typerC == 1){
-                    userID = clientIn.readLine ();
+                    while (true) {
+                        userID = clientIn.readLine ();
 
-                    input = clientIn.readLine ();
-                    outClient.println (input);
+                        input = clientIn.readLine ();
+                        outClient.println (input);
 
-                    input2 = Float.parseFloat(clientIn.readLine());
-                    outClient.println (input2);
-                    wCSV.writeDataCSV(userID,input, input2);
-
+                        input2 = Float.parseFloat(clientIn.readLine());
+                        outClient.println (input2);
+                        WriteCSV.writeDataCSV(userID,input, input2);
+                    }
                 }
 
                 else if(typerC == 2){

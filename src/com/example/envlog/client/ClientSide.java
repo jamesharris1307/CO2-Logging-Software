@@ -26,7 +26,7 @@ public class ClientSide {
 
         //loop where user should input port number
         while (true) {
-            System.out.println("Please input portNum");
+            System.out.println("Please Input Port Number");
             try {
 
                 portNum = scn.nextInt();

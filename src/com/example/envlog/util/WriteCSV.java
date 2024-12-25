@@ -38,16 +38,6 @@ public class WriteCSV {
     // Method to Write to Data CSV File
     public static void writeDataCSV(String userID, String inputPostcode, float co2Reading){
 
-        Tools tl = new Tools();
-
-        Tools.UserInputData tu = new Tools.UserInputData();
-
-//        String userID = Login.userId;
-
-//        String inputPostcode =  new Tools.UserInputData().inputPostcode;
-//
-//        float co2Reading = new Tools.UserInputData().co2Reading;
-
         // Path to the CSV File
         String dataCsvFilePath = "src/resources/CO2Data.csv";
         File dataInfoCSV = new File(dataCsvFilePath);
@@ -74,10 +64,5 @@ public class WriteCSV {
             System.out.println("Couldn't write to file");
         }
 
-    } // End writeUserInfoCSV Method
-
-    public static void main(String[] args) {
-//        writeDataCSV();
     }
-
 }

@@ -52,7 +52,6 @@ public class UserDataHandler {
             }
             else{
                 System.out.println("Invalid Input");
-                break;
             }
         }
     }
