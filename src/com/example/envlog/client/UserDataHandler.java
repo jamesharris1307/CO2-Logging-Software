@@ -49,6 +49,8 @@ public class UserDataHandler {
                 // Send the valid CO2 value to the server
                 serverOut.println(co2Input);
                 System.out.println("Server: " + serverIn.readLine());
+            } else if (userInputChoice.equals("2")) {
+                break;
             }
             else{
                 System.out.println("Invalid Input");
