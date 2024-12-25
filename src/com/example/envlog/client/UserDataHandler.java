@@ -33,8 +33,21 @@ public class UserDataHandler {
                 System.out.println("Server: " + serverIn.readLine());
 
                 System.out.println("Please enter CO2");
-                userInput = stdIn.readLine();
-                serverOut.println(userInput);
+
+                // Ensure CO2 input is a valid float
+                float co2Value = -1;
+                while (co2Value == -1) {
+                    try {
+                        userInput = stdIn.readLine();
+                        co2Value = Float.parseFloat(userInput);  // Try parsing the input as a float
+                    } catch (NumberFormatException e) {
+                        System.out.println("Invalid CO2 value. Please enter a valid number.");
+                        // GFGDF
+                    }
+                }
+
+                // Send the valid CO2 value to the server
+                serverOut.println(co2Value);
                 System.out.println("Server: " + serverIn.readLine());
             }
             else{
