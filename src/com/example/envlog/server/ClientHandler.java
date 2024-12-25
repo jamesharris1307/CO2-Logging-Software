@@ -54,9 +54,12 @@ class ClientHandler implements Runnable {
                     input = clientIn.readLine();
                     outClient.println(input);
 
+                    String input2String;
 
-                    input2 = Float.parseFloat(clientIn.readLine());
-                    outClient.println(input2);
+                    input2String = clientIn.readLine();
+                    outClient.println(input2String);
+
+                    input2 = Float.parseFloat(input2String);
 
                     WriteCSV.writeDataCSV(userID, input, input2);
                 }
@@ -73,7 +76,6 @@ class ClientHandler implements Runnable {
                         outClient.println("Invalid option. Please enter a number (1, 2, or 3).");
                         continue;
                     }
-
 
                     switch (clientChoice) {
                         case 1:
