@@ -27,27 +27,27 @@ public class UserDataHandler {
             if (userInputChoice.equals("1")) {
                 serverOut.println(userID);
 
+                // Postcode Input
                 System.out.println("Please enter postcode");
                 userInput = stdIn.readLine();
                 serverOut.println(userInput);
                 System.out.println("Server: " + serverIn.readLine());
 
+                // CO2 Input
                 System.out.println("Please enter CO2");
-
-                // Ensure CO2 input is a valid float
-                float co2Value = -1;
-                while (co2Value == -1) {
+                // Validate UserInput is Float for CO2 Reading
+                float co2Input = -1;
+                while (co2Input == -1) {
                     try {
                         userInput = stdIn.readLine();
-                        co2Value = Float.parseFloat(userInput);  // Try parsing the input as a float
+                        co2Input = Float.parseFloat(userInput);
                     } catch (NumberFormatException e) {
                         System.out.println("Invalid CO2 value. Please enter a valid number.");
-                        // GFGDF
                     }
                 }
 
                 // Send the valid CO2 value to the server
-                serverOut.println(co2Value);
+                serverOut.println(co2Input);
                 System.out.println("Server: " + serverIn.readLine());
             }
             else{

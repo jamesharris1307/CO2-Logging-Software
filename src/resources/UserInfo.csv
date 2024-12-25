@@ -1,7 +1,4 @@
 Type, UserID, Name, Username, Password
-3,DataAnalyst,DataAnalyst,DataAnalyst,DataAnalyst
+1,Researcher,Researcher,Researcher,Researcher
 2,Admin,Admin,Admin,Admin
-1,R202412031635476629,James,James1307,12345678,
-1,R202412031635595228,Ryan,Ryan1245,12345678,
-1,R202412031637249221,Jake,Jake0987,12345678,
-1,R202412042312431948,Davina,DavinaL,12345678,
+3,DataAnalyst,DataAnalyst,DataAnalyst,DataAnalyst

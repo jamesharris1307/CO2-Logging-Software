@@ -4,11 +4,12 @@ import com.example.envlog.service.Login;
 
 import java.io.*;
 import java.net.*;
+import java.util.Queue;
 import java.util.Scanner;
 
 public class ClientSide {
     public static void client1() throws IOException {
-//       initialising variables
+        // initialising variables
         Socket server = null;
         PrintWriter serverOut = null;
         BufferedReader serverIn = null;
@@ -19,18 +20,18 @@ public class ClientSide {
 
         Scanner scn = new Scanner(System.in);
 
-//      initialising port number variables
+        // initialising port number variables
         int portNum;
         int actualPortNum = 2222;
 
-//     loop where user should input port number
+        //loop where user should input port number
         while (true) {
             System.out.println("Please input portNum");
             try {
 
                 portNum = scn.nextInt();
 
-//               if port number equal to actual port number than it will connect to server else throw exception
+                // if port number equal to actual port number than it will connect to server else throw exception
                 if (portNum == actualPortNum) {
 
                     server = new Socket("192.168.86.50", portNum);
@@ -51,8 +52,6 @@ public class ClientSide {
             }
         }
 
-
-
         if(Login.userType == 1){
             UserDataHandler.inputData(serverOut, serverIn);
         }
@@ -61,14 +60,11 @@ public class ClientSide {
                 String menuMessage = serverIn.readLine();
                 System.out.println(menuMessage);
 
-
                 int userChoice = scn.nextInt();
                 scn.nextLine();
-
-
                 serverOut.println(userChoice);
-                serverOut.flush();
 
+                serverOut.flush();
                 String serverResponse = serverIn.readLine();
                 System.out.println(serverResponse);
 
@@ -81,55 +77,39 @@ public class ClientSide {
                 } else if (userChoice == 3) {
                     break;
                 }
-
-
             }
         }
-
         else if(Login.userType == 3) {
             while(true){
                 String menuMessage = serverIn.readLine();
                 System.out.println(menuMessage);
 
                 int userChoice = scn.nextInt();
-
                 serverOut.println(userChoice);
-
-
                 String serverResponse = serverIn.readLine();
                 System.out.println(serverResponse);
 
                 if (userChoice== 1) {
-
                     String additionalData;
                     while (!(additionalData = serverIn.readLine()).isEmpty()) {
                         System.out.println(additionalData);
                     }
-                }
-                else if (userChoice == 2){
+                } else if (userChoice == 2){
                     break;
                 }
-
             }
-            
         }
 
         while(true){
-
-            System.out.println("Please input Close to exit program");
+            System.out.println("Please Input Close to Exit Program");
             userInput = stdIn.readLine();
-            if(userInput.equals("close") || userInput.equals("Close")){
+            if(userInput.equalsIgnoreCase("Close")){
                 System.out.println("Closing");
                 serverOut.close();
                 serverIn.close();
                 server.close();
                 break;
             }
-
         }
-
-
-
-
     }
 }
