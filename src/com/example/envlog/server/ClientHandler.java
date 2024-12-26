@@ -45,22 +45,42 @@ class ClientHandler implements Runnable {
             if (typerC == 1) {
                 while (true) {
                     userID = clientIn.readLine();
+                    if (userID == null) {
+                        break;
+                    }
 
                     input = clientIn.readLine();
+                    if (input == null) {
+                        break;
+                    }
+
                     outClient.println(input);
 
-                    //Scanner reader = new Scanner(clientIn); // Try Scanner Instead of Buffered Reader because scanner reads a float (nextFloat) while buffered reader reads String (readLine).
-                    //input2 = reader.nextFloat();
+                    /*
+                    // Scanner reader = new Scanner(clientIn); // Try Scanner Instead of Buffered Reader because scanner reads a float (nextFloat) while buffered reader reads String (readLine).
+                    // input2 = reader.nextFloat();
 
                     input2 = Float.valueOf(clientIn.readLine()); // !! Error, when close connection to Server, Float is Assigned Null Value (Causes Null Pointer Exception) !!
                     outClient.println(input2);
 
-                    if (input2 != null) {
-                        WriteCSV.writeDataCSV(userID, input, input2);
-                    } else {
+                    WriteCSV.writeDataCSV(userID, input, input2);
+                    */
+
+                    // Read the float input from the client
+                    String inputLine = clientIn.readLine();
+                    if (inputLine == null) {
                         break;
                     }
 
+                    // Attempt to parse the float value
+                    try {
+                        input2 = Float.valueOf(inputLine);
+                    } catch (NumberFormatException e) {
+                        outClient.println("Invalid CO2 value. Please enter a valid number.");
+                        continue;
+                    }
+
+                    outClient.println(input2);
                     WriteCSV.writeDataCSV(userID, input, input2);
                 }
             } else if (typerC == 2) {
