@@ -25,7 +25,7 @@ public class WriteCSV {
 
             // Write Data Row to the CSV File
             writer.newLine();
-            writer.write(1 + "," + userInfo.getUserId().trim() + "," + userInfo.getName().trim() + "," + userInfo.getUsername().trim() + "," + userInfo.getPassword().trim() + ",");
+            writer.write(1 + "," + userInfo.getUserId().trim() + "," + userInfo.getName().trim() + "," + userInfo.getUsername().trim() + "," + userInfo.getPassword().trim());
             writer.close();
 
             // Error Handling
@@ -53,7 +53,7 @@ public class WriteCSV {
 
             // Write Data Row to the CSV File
             writer.newLine();
-            writer.write(timeStamp + "," + userID + "," + inputPostcode.trim() + "," + co2Reading);
+            writer.write(timeStamp + "," + userID + "," + inputPostcode + "," + co2Reading);
             writer.close();
 
             //Success Message

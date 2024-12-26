@@ -24,6 +24,7 @@ public class UserDataHandler {
             System.out.println("Would you like to add Record or Close connection: Enter 1 or 2 \n 1) Add record \n 2) Close connection ");
             String userInputChoice = scn.nextLine();
 
+            float co2Input;
             if (userInputChoice.equals("1")) {
                 serverOut.println(userID);
 
@@ -36,7 +37,7 @@ public class UserDataHandler {
                 // CO2 Input
                 System.out.println("Please enter CO2");
                 // Validate UserInput is Float for CO2 Reading
-                float co2Input = -1;
+                co2Input = -1;
                 while (co2Input == -1) {
                     try {
                         userInput = stdIn.readLine();
@@ -50,14 +51,12 @@ public class UserDataHandler {
                 serverOut.println(co2Input);
                 System.out.println("Server: " + serverIn.readLine());
             } else if (userInputChoice.equals("2")) {
+                userInput = "No Input";
+                co2Input = Float.parseFloat("1.1");
                 break;
-            }
-            else{
+            } else {
                 System.out.println("Invalid Input");
             }
         }
     }
-
-
-
 }

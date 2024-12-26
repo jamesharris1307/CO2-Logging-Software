@@ -9,7 +9,8 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Objects;
-
+import java.util.Scanner;
+import static java.lang.System.out;
 
 class ClientHandler implements Runnable {
     private final Socket client;
@@ -33,7 +34,7 @@ class ClientHandler implements Runnable {
 //              Print something to the client
             outClient = new PrintWriter(client.getOutputStream(), true);
         } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
+            out.println("Error: " + e.getMessage());
         }
         assert outClient != null;
         outClient.println("Welcome to the server !");
@@ -43,40 +44,32 @@ class ClientHandler implements Runnable {
 
             if (typerC == 1) {
                 while (true) {
-
-                    // Check if client is still connected
-                    if (client.isClosed() || client.isInputShutdown()) {
-                        outClient.println("Client disconnected");
-                        break;
-                    }
-
                     userID = clientIn.readLine();
+
                     input = clientIn.readLine();
                     outClient.println(input);
 
-                    String input2String;
+                    Scanner reader = new Scanner(clientIn); // Try Scanner Instead of Buffered Reader because scanner reads a float (nextFloat) while buffered reader reads String (readLine).
 
-                    input2String = clientIn.readLine();
-                    outClient.println(input2String);
+                    input2 = reader.nextFloat();
 
-                    input2 = Float.parseFloat(input2String);
+                    //input2 = Float.parseFloat(clientIn.readLine()); // !! Error, when close connection to Server, Float is Assigned Null Value (Causes Null Pointer Exception) !!
+                    outClient.println(input2);
 
                     WriteCSV.writeDataCSV(userID, input, input2);
                 }
             } else if (typerC == 2) {
                 while (true) {
                     outClient.println("Would you like to show user (data) information or show CO2 data: Enter 1, 2, or 3: 1) Show User Information; 2)Show CSV data; 3) Close program");
-
                     String clientChoiceStr = clientIn.readLine();
-
                     int clientChoice;
+
                     try {
                         clientChoice = Integer.parseInt(clientChoiceStr);
                     } catch (NumberFormatException e) {
                         outClient.println("Invalid option. Please enter a number (1, 2, or 3).");
                         continue;
                     }
-
                     switch (clientChoice) {
                         case 1:
                             String userInfo = Admin.showUserInfo();
@@ -90,19 +83,15 @@ class ClientHandler implements Runnable {
                             outClient.println("Exiting.");
                             break;
                         default:
-
                             outClient.println("Invalid option. Try again.");
                             outClient.flush();
                             break;
                     }
                 }
-
             } else if (typerC == 3) {
                 while (true) {
                     outClient.println("Would you like to show user (data) information or show CO2 data: Enter 1, 2: 1)Show Csv data; 2)Close program");
-
                     String clientChoiceStr = clientIn.readLine();
-
                     int clientChoice;
 
                     try {
@@ -112,7 +101,6 @@ class ClientHandler implements Runnable {
                         outClient.flush();
                         continue;
                     }
-
                     switch (clientChoice) {
                         case 1:
                             String userInfo = DataAnalyst.showCsvData();
@@ -132,22 +120,19 @@ class ClientHandler implements Runnable {
 
         do {
             try {
-
                 input = clientIn.readLine();
             } catch (Exception e) {
-                System.out.println("Error: " + e.getMessage());
+                out.println("Error: " + e.getMessage());
             }
-
         }
 
         while (!Objects.equals(input, "close"));
-
         try {
             clientIn.close();
             outClient.close();
             client.close();
         } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
+            out.println("Error: " + e.getMessage());
         }
     }
 }

@@ -28,12 +28,10 @@ public class ClientSide {
         while (true) {
             System.out.println("Please Input Port Number");
             try {
-
                 portNum = scn.nextInt();
 
                 // if port number equal to actual port number than it will connect to server else throw exception
                 if (portNum == actualPortNum) {
-
                     server = new Socket("192.168.86.50", portNum);
                     serverOut = new PrintWriter(server.getOutputStream(), true);
                     serverIn = new BufferedReader(new InputStreamReader(server.getInputStream()));
@@ -41,7 +39,6 @@ public class ClientSide {
                     System.out.println(welcome);
                     serverOut.println(Login.userType);
                     break;
-
                 }
             } catch (UnknownHostException e) {
                 System.err.println("Can't find localhost.");
@@ -63,15 +60,14 @@ public class ClientSide {
                 int userChoice = scn.nextInt();
                 scn.nextLine();
                 serverOut.println(userChoice);
-
                 serverOut.flush();
                 String serverResponse = serverIn.readLine();
                 System.out.println(serverResponse);
 
                 if (userChoice == 1 || userChoice == 2) {
-
                     String additionalData;
-                    while (!(additionalData = serverIn.readLine()).isEmpty()) {
+                    while (!(additionalData = serverIn.readLine()).isEmpty())
+                    {
                         System.out.println(additionalData);
                     }
                 } else if (userChoice == 3) {
@@ -83,7 +79,6 @@ public class ClientSide {
             while(true){
                 String menuMessage = serverIn.readLine();
                 System.out.println(menuMessage);
-
                 int userChoice = scn.nextInt();
                 serverOut.println(userChoice);
                 String serverResponse = serverIn.readLine();

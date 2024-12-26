@@ -25,16 +25,18 @@ public class Main {
             if (userInput.equalsIgnoreCase("L")) {
                 login(); // Execute Login Clas
                 break;
+
             // If User Selects Register
             } else if (userInput.equalsIgnoreCase("R")) {
                 RegisterUser registerUser = new RegisterUser(); // Create New Register Object
                 boolean registrationSuccessful = registerUser.registerUser(); // Validate User Registration Input
+
                 // If Registration is Successful
                 if (registrationSuccessful) {
                     UserInfo userInfo = new UserInfo(registerUser.getUserId(), registerUser.getName(), registerUser.getUsername(), registerUser.getPassword()); // Get User Info
                     writeUserInfoCSV(userInfo); // Append to CSV File UserInfo.csv
-                    // If User Input is not valid
                 }
+                // If User Input is not valid
                 else {System.out.println("Invalid Input");
                 }
             } else {
@@ -44,13 +46,11 @@ public class Main {
 
         // Initialise Client
         ClientSide cl = new ClientSide();
-
         try {
             cl.client1();
             System.out.println("Finished");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
-    } // Public Static Void Main End
-} // Public Class Main End
+    }
+}
