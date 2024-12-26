@@ -25,7 +25,7 @@ class ClientHandler implements Runnable {
         BufferedReader clientIn = null;
         PrintWriter outClient = null;
         String input = null;
-        float input2;
+        Float input2;
         String userID;
 
         try {
@@ -49,12 +49,17 @@ class ClientHandler implements Runnable {
                     input = clientIn.readLine();
                     outClient.println(input);
 
-                    Scanner reader = new Scanner(clientIn); // Try Scanner Instead of Buffered Reader because scanner reads a float (nextFloat) while buffered reader reads String (readLine).
+                    //Scanner reader = new Scanner(clientIn); // Try Scanner Instead of Buffered Reader because scanner reads a float (nextFloat) while buffered reader reads String (readLine).
+                    //input2 = reader.nextFloat();
 
-                    input2 = reader.nextFloat();
-
-                    //input2 = Float.parseFloat(clientIn.readLine()); // !! Error, when close connection to Server, Float is Assigned Null Value (Causes Null Pointer Exception) !!
+                    input2 = Float.valueOf(clientIn.readLine()); // !! Error, when close connection to Server, Float is Assigned Null Value (Causes Null Pointer Exception) !!
                     outClient.println(input2);
+
+                    if (input2 != null) {
+                        WriteCSV.writeDataCSV(userID, input, input2);
+                    } else {
+                        break;
+                    }
 
                     WriteCSV.writeDataCSV(userID, input, input2);
                 }
