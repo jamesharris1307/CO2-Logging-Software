@@ -21,7 +21,7 @@ public class UserDataHandler {
     public static void inputData(PrintWriter serverOut, BufferedReader serverIn) throws IOException {
 
         while(true) {
-            System.out.println("Would you like to add Record or Close connection: Enter 1 or 2 \n 1) Add record \n 2) Close connection ");
+            System.out.println("Would you like to:\n1) Add record\n2) Close connection ");
             String userInputChoice = scn.nextLine();
 
             float co2Input;
@@ -29,13 +29,13 @@ public class UserDataHandler {
                 serverOut.println(userID);
 
                 // Postcode Input
-                System.out.println("Please enter postcode");
+                System.out.println("Please Enter Postcode");
                 userInput = stdIn.readLine();
                 serverOut.println(userInput);
                 System.out.println("Server: " + serverIn.readLine());
 
                 // CO2 Input
-                System.out.println("Please enter CO2");
+                System.out.println("Please Enter CO2 Reading");
                 // Validate UserInput is Float for CO2 Reading
                 co2Input = -1;
                 while (co2Input == -1) {
@@ -43,7 +43,7 @@ public class UserDataHandler {
                         userInput = stdIn.readLine();
                         co2Input = Float.parseFloat(userInput);
                     } catch (NumberFormatException e) {
-                        System.out.println("Invalid CO2 value. Please enter a valid number.");
+                        System.out.println("Invalid CO2 Value Please Enter a Valid Number.");
                     }
                 }
 
@@ -51,8 +51,6 @@ public class UserDataHandler {
                 serverOut.println(co2Input);
                 System.out.println("Server: " + serverIn.readLine());
             } else if (userInputChoice.equals("2")) {
-                userInput = "No Input";
-                co2Input = Float.parseFloat("1.1");
                 break;
             } else {
                 System.out.println("Invalid Input");

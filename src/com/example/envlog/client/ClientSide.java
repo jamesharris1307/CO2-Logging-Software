@@ -41,7 +41,7 @@ public class ClientSide {
                     break;
                 }
             } catch (UnknownHostException e) {
-                System.err.println("Can't find localhost.");
+                System.err.println("Can't find Server IP Address");
                 return;
             } catch (IOException e) {
                 System.err.println("IO Error on connection to localhost/server.\n Is server running?");

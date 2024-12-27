@@ -66,13 +66,12 @@ class ClientHandler implements Runnable {
                     WriteCSV.writeDataCSV(userID, input, input2);
                     */
 
-                    // Read the float input from the client
+                    // Read the float input
                     String inputLine = clientIn.readLine();
                     if (inputLine == null) {
                         break;
                     }
 
-                    // Attempt to parse the float value
                     try {
                         input2 = Float.valueOf(inputLine);
                     } catch (NumberFormatException e) {
@@ -85,14 +84,15 @@ class ClientHandler implements Runnable {
                 }
             } else if (typerC == 2) {
                 while (true) {
-                    outClient.println("Would you like to show user (data) information or show CO2 data: Enter 1, 2, or 3: 1) Show User Information; 2)Show CSV data; 3) Close program");
+                    outClient.println("Would You Like to: (1) View User Info (2) View CSV Data (3) Close Program");
+
                     String clientChoiceStr = clientIn.readLine();
                     int clientChoice;
 
                     try {
                         clientChoice = Integer.parseInt(clientChoiceStr);
                     } catch (NumberFormatException e) {
-                        outClient.println("Invalid option. Please enter a number (1, 2, or 3).");
+                        outClient.println("Invalid option. Please Enter a Number (1, 2, or 3).");
                         continue;
                     }
                     switch (clientChoice) {
@@ -115,14 +115,14 @@ class ClientHandler implements Runnable {
                 }
             } else if (typerC == 3) {
                 while (true) {
-                    outClient.println("Would you like to show user (data) information or show CO2 data: Enter 1, 2: 1)Show Csv data; 2)Close program");
+                    outClient.println("Would you like to: (1) View CSV Data (2) Close program");
                     String clientChoiceStr = clientIn.readLine();
                     int clientChoice;
 
                     try {
                         clientChoice = Integer.parseInt(clientChoiceStr);
                     } catch (NumberFormatException e) {
-                        outClient.println("Invalid option. Please enter a number (1 or 2).");
+                        outClient.println("Invalid option. Please Enter a Number (1 or 2).");
                         outClient.flush();
                         continue;
                     }
@@ -134,7 +134,7 @@ class ClientHandler implements Runnable {
                         case 2:
                             break;
                         default:
-                            outClient.println("Invalid option. Try again.");
+                            outClient.println("Invalid Option. Try again.");
                             outClient.flush();
                     }
                 }
