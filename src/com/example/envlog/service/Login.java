@@ -1,7 +1,6 @@
 package com.example.envlog.service;
 
 // Imports
-import java.util.Objects;
 import java.util.Scanner;
 import com.example.envlog.util.ReadCSV;
 

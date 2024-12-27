@@ -2,15 +2,12 @@ package com.example.envlog.service;
 
 // Imports
 import java.util.Scanner;
-
-import com.example.envlog.model.UserInfo;
-import com.example.envlog.util.Tools.UniqueUserIDGenerator;
-
 import com.example.envlog.util.Tools;
 import com.example.envlog.util.ValidateUserInfo;
 
 public class RegisterUser {
 
+    // Declare Variables
     private String name;
     private String username;
     private String password;
@@ -19,7 +16,7 @@ public class RegisterUser {
         // Initialise Scanner
         Scanner scn = new Scanner(System.in);
         // Declare Variables
-        String input = "Please Enter ";
+        String inputPrompt = "Please Enter ";
 
         // Initialize ValidateUserInfo class
         ValidateUserInfo validate = new ValidateUserInfo();
@@ -31,15 +28,15 @@ public class RegisterUser {
             System.out.println("-- Register --");
 
             // Prompt User to Enter Name
-            System.out.println(input + "Name: ");
+            System.out.println(inputPrompt + "Name: ");
             this.name = scn.nextLine();
 
             // Prompt User to Enter Username
-            System.out.println(input + "Username: ");
+            System.out.println(inputPrompt + "Username: ");
             this.username = scn.nextLine();
 
             // Prompt User to Enter Password
-            System.out.println(input + "Password: ");
+            System.out.println(inputPrompt + "Password: ");
             this.password = scn.nextLine();
 
             // Validate Input
@@ -61,14 +58,17 @@ public class RegisterUser {
         return userId;
     }
 
+    // Get Name
     public String getName() {
         return name;
     }
 
+    // Get Username
     public String getUsername() {
         return username;
     }
 
+    // Get Password
     public String getPassword() {
         return password;
     }

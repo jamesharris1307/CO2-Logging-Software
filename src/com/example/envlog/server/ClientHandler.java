@@ -9,7 +9,6 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Objects;
-import java.util.Scanner;
 import static java.lang.System.out;
 
 class ClientHandler implements Runnable {
@@ -21,7 +20,7 @@ class ClientHandler implements Runnable {
 
     //Run method
     public void run() {
-//          Initialising variables
+        // Initialising variables
         BufferedReader clientIn = null;
         PrintWriter outClient = null;
         String input = null;
@@ -29,9 +28,9 @@ class ClientHandler implements Runnable {
         String userID;
 
         try {
-//              Getting client input
+        // Getting client input
             clientIn = new BufferedReader(new InputStreamReader(client.getInputStream()));
-//              Print something to the client
+        // Print something to the client
             outClient = new PrintWriter(client.getOutputStream(), true);
         } catch (Exception e) {
             out.println("Error: " + e.getMessage());
@@ -55,16 +54,6 @@ class ClientHandler implements Runnable {
                     }
 
                     outClient.println(input);
-
-                    /*
-                    // Scanner reader = new Scanner(clientIn); // Try Scanner Instead of Buffered Reader because scanner reads a float (nextFloat) while buffered reader reads String (readLine).
-                    // input2 = reader.nextFloat();
-
-                    input2 = Float.valueOf(clientIn.readLine()); // !! Error, when close connection to Server, Float is Assigned Null Value (Causes Null Pointer Exception) !!
-                    outClient.println(input2);
-
-                    WriteCSV.writeDataCSV(userID, input, input2);
-                    */
 
                     // Read the float input
                     String inputLine = clientIn.readLine();
