@@ -23,29 +23,44 @@ public class ClientSide {
         // initialising port number variables
         int portNum;
         int actualPortNum = 2222;
+        String serverIp = null;
 
         //loop where user should input port number
         while (true) {
-            System.out.println("Please Input Port Number");
+            System.out.println("Please Input Port Number:");
             try {
                 portNum = scn.nextInt();
+                scn.nextLine();
 
-                // if port number equal to actual port number than it will connect to server else throw exception
                 if (portNum == actualPortNum) {
-                    server = new Socket("192.168.86.50", portNum);
-                    serverOut = new PrintWriter(server.getOutputStream(), true);
-                    serverIn = new BufferedReader(new InputStreamReader(server.getInputStream()));
-                    String welcome = serverIn.readLine();
-                    System.out.println(welcome);
-                    serverOut.println(Login.userType);
-                    break;
+                    // Loop to retry entering the correct IP address
+                    while (true) {
+                        System.out.println("Please Input Server IP Address:");
+                        serverIp = scn.nextLine();
+
+                        try {
+                            // Attempt to connect to the server
+                            server = new Socket(serverIp, portNum);
+                            serverOut = new PrintWriter(server.getOutputStream(), true);
+                            serverIn = new BufferedReader(new InputStreamReader(server.getInputStream()));
+
+                            String welcome = serverIn.readLine();
+                            System.out.println(welcome);
+                            serverOut.println(Login.userType);
+                            break; // Exit IP input loop upon successful connection
+                        } catch (UnknownHostException e) {
+                            System.err.println("Invalid Server IP Address. Please try again.");
+                        } catch (IOException e) {
+                            System.err.println("IO Error on connection to server. Is the server running? Please try again.");
+                        }
+                    }
+                    break; // Exit port number loop after successful connection
+                } else {
+                    System.out.println("Incorrect Port Number. Please try again.");
                 }
-            } catch (UnknownHostException e) {
-                System.err.println("Can't find Server IP Address");
-                return;
-            } catch (IOException e) {
-                System.err.println("IO Error on connection to localhost/server.\n Is server running?");
-                return;
+            } catch (Exception e) {
+                System.err.println("Invalid input. Please enter a numeric port number.");
+                scn.nextLine(); // Clear invalid input
             }
         }
 
