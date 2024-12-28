@@ -38,6 +38,12 @@ public class ClientSide {
                         System.out.println("Please Input Server IP Address:");
                         serverIp = scn.nextLine();
 
+                        // Ensure input is not empty
+                        if (serverIp.isEmpty()) {
+                            System.out.println("Server IP Address cannot be empty. Please try again.");
+                            continue; // Prompt the user to try again
+                        }
+
                         try {
                             // Attempt to connect to the server
                             server = new Socket(serverIp, portNum);
