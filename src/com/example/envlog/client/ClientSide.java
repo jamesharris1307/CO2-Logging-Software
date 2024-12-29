@@ -22,7 +22,7 @@ public class ClientSide {
 
         // initialising port number variables
         int portNum;
-        int actualPortNum = 2222;
+        int actualPortNum = 4873;
         String serverIp = null;
 
         //loop where user should input port number
