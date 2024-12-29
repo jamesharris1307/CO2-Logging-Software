@@ -4,7 +4,6 @@ import com.example.envlog.service.Login;
 
 import java.io.*;
 import java.net.*;
-import java.util.Queue;
 import java.util.Scanner;
 
 public class ClientSide {
@@ -78,8 +77,20 @@ public class ClientSide {
                 String menuMessage = serverIn.readLine();
                 System.out.println(menuMessage);
 
-                int userChoice = scn.nextInt();
-                scn.nextLine();
+               // int userChoice = scn.nextInt();
+                //scn.nextLine();
+
+                int userChoice = -1;
+                while (userChoice == -1) {
+                    try {
+                        userChoice = scn.nextInt();
+                        scn.nextLine();
+                    } catch (Exception e) {
+                        System.err.println("Invalid input. Please try again.");
+                        scn.nextLine();
+                    }
+                }
+
                 serverOut.println(userChoice);
                 serverOut.flush();
                 String serverResponse = serverIn.readLine();
@@ -100,7 +111,20 @@ public class ClientSide {
             while(true){
                 String menuMessage = serverIn.readLine();
                 System.out.println(menuMessage);
-                int userChoice = scn.nextInt();
+
+                //int userChoice = scn.nextInt();
+
+                int userChoice = -1;
+                while (userChoice == -1) {
+                    try {
+                        userChoice = scn.nextInt();
+                        scn.nextLine();
+                    } catch (Exception e) {
+                        System.err.println("Invalid input. Please try again.");
+                        scn.nextLine();
+                    }
+                }
+
                 serverOut.println(userChoice);
                 String serverResponse = serverIn.readLine();
                 System.out.println(serverResponse);
