@@ -117,7 +117,7 @@ public class ClientSide {
         }
 
         while(true){
-            System.out.println("Please Input Close to Exit Program");
+            System.out.println("Please Input Close to Terminate Connection with Server");
             userInput = stdIn.readLine();
             if(userInput.equalsIgnoreCase("Close")){
                 System.out.println("Closing");
